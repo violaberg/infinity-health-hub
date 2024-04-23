@@ -6,9 +6,13 @@
     --gray: #404040;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     background: var(--green);
-    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%);
+    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%) fixed;
 }
 
 .logo {
