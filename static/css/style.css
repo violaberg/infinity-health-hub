@@ -1,0 +1,24 @@
+:root {
+    --pink: #ffe4d1;
+    --yellow: #feeeba;
+    --green: #dbead5;
+    --cream: #f4f5e0;
+    --gray: #404040;
+}
+
+body {
+    background: var(--green);
+    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%);
+}
+
+.logo {
+    width: 25%;
+}
+
+.logo-text {
+    color: var(--gray);
+}
+
+.nav-link {
+    color: var(--gray);
+}
