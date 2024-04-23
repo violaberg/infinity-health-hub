@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'home' as home_url %}
  
 <!DOCTYPE html>
 <html lang="en">
@@ -24,19 +25,27 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <header class="container-fluid fixed-top bg-white">
+        <div id="topnav" class="row pt-lg-4 d-none d-lg-flex">
+            <div class="col-6 col-lg-6 my-auto py-1 py-lg-0 text-center text-lg-left">
+              <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <img class="logo d-inline" src="{% static 'images/logo1.png' %}" alt="Rainbow color infinity symbol">
+                <h2 class="logo-text d-inline my-0">Infinity Health Hub</h2>
+              </a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><span class="brand"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">Home</a>
+                                href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
@@ -48,6 +57,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
+                                href="#">Forum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current=""
                                 href="#">Profile</a>
                         </li>
                         <li class="nav-item">
@@ -55,9 +68,6 @@
                                 href="#">Contact Us</a>
                         </li>
                     </ul>
-                    <span class="navbar-text text-muted">
-                        Resources for Neurodivergent Females
-                    </span>
                 </div>
             </div>
         </nav>
@@ -67,8 +77,16 @@
 
         {% endblock %}
     </div>
-    <footer>
-        FOOTER GOES HERE
+    <footer class="footer fixed-bottom mt-auto text-center bg-white py-3">
+        <p class="m-0">
+            <a href="#">Contact Us</a>
+        </p>
+        <p class="m-0 text-center">Find us on social: <i class="fab fa-facebook-square ms-3"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+        </p>
+        {% block copyright %}
+        <p class="m-0 text-center">&copy; Infinity Squad 2024</p>
+        {% endblock copyright %}
     </footer>
     <script src="https://kit.fontawesome.com/cdf0a3356f.js" crossorigin="anonymous"></script>
 </body>
