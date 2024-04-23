@@ -57,6 +57,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 APPEND_SLASH = False
 
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
