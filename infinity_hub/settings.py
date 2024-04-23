@@ -33,7 +33,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['infinity-hub-15161149b9fb.herokuapp.com',
+'8000-vasileios20-infinityhub-tnlazceugrf.ws-eu110.gitpod.io',
+'https://8000-vasileios20-infinityhub-tnlazceugrf.ws-eu110.gitpod.io',
                  'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = [
+                        ('https://8000-vasileios20-infinityhub-tnlazceugrf.'
+                        + 'ws-eu110.gitpod.io'),
+                       ]
 
 
 # Application definition
@@ -56,6 +63,7 @@ INSTALLED_APPS = [
     'home',
     'contact',
     'forum',
+    'profiles',
 ]
 
 SITE_ID = 1
