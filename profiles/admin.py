@@ -14,6 +14,21 @@ class LifeStageAdmin(admin.ModelAdmin):
         'description',
     )
 
+class UserProfileAdmin(admin.ModelAdmin):
+    """" User Profile admin """
+    list_display = (
+        "pk",
+        "user",
+        "alias",
+        "image",
+        "about_me",
+        'is__approved',
+        "lifestage",
+        "IFAB",
+        "StillIdentifies",
+        "neurodiversity",
+    )
+
 admin.site.register(UserProfile)
 admin.site.register(NeuroDiversity)
 admin.site.register(LifeStage)
