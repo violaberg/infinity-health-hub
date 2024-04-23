@@ -15,6 +15,6 @@ Acceptance Criteria:
 - 
 
 Tasks:
-[] -
-[ ] -
-[ ] -
+- [ ] Task
+- [ ] Task
+- [ ]  Task
