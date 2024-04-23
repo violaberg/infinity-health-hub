@@ -5,6 +5,7 @@
     --cream: #f4f5e0;
     --gray: #404040;
     --darkgreen: #033500;
+    --darkpink: #eeada0;
 }
 
 html {
@@ -60,4 +61,13 @@ body {
     background: var(--pink);
     border-color: var(--darkgreen);
     color: var(--darkgreen);
+}
+
+.custom-secondary-btn {
+    background: var(--darkpink);
+}
+
+.custom-secondary-btn:hover {
+    background: var(--darkgreen);
+    color: var(--darkpink);
 }

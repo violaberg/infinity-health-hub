@@ -41,6 +41,7 @@ ALLOWED_HOSTS = ['infinity-hub-15161149b9fb.herokuapp.com',
 CSRF_TRUSTED_ORIGINS = [
                         ('https://8000-vasileios20-infinityhub-tnlazceugrf.'
                         + 'ws-eu110.gitpod.io'),
+                        'https://8000-vasileios20-infinityhub-n7uovthffb0.ws-eu110.gitpod.io',
                        ]
 
 
