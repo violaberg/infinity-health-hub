@@ -12,14 +12,14 @@
     <div class="col-md-6 m-auto">
       <h1 class="h1 mt-3 pb-3 text-center">{% trans "Sign Up" %}</h1>
 
-      <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign
+      <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="link">sign
           in</a>.{% endblocktrans %}
       </p>
 
       <div class="row mt-1">
-        <div class="col-md-6 m-auto border rounded p-3">
+        <div class="custom-border col-md-6 m-auto border rounded p-3">
 
-          <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <form class="signup text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form.non_field_errors | safe }}
             <input type="hidden" name="remember" value="true">
@@ -49,7 +49,7 @@
             <input type="hidden" class="form-control" name="{{ redirect_field_name }}"
               value="{{ redirect_field_value }}" />
             {% endif %}
-            <button type="submit" class="btn btn-secondary mt-1">{% trans "Sign Up" %} &raquo;</button>
+            <button type="submit" class="custom-btn btn btn-lg btn-secondary mt-3">{% trans "Sign Up" %} &raquo;</button>
           </form>
         </div>
       </div>
