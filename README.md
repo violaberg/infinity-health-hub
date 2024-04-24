@@ -1,116 +1,208 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Infinity Hub 
+Developer:  **Team Infinity**, Apr 2024
 
-2-user-story-create-readme-template-deirdre
-TEST Deirdre - small update to readme 23/04/24 13:00
+![Site image](./django_financial_planner/docs/readme_images/val-responsive.png?raw=true "Site image (responsive view)")
 
-Welcome Deirdre McCarthy,
-Welcome Viola Bergere,
-main
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+# Table of Contents:
+1. [About](#about)
+2. [Project Goals: ](#project-goals)
+    1. [UX Design - Strategy ](#ux-design-strategy) 
+    2. [UX Design - Strategy - Competitor Portals](#ux-design-strategy-analysis-of-competitors)
+    3. [UX Design - Strategy - Target Audience](#ux-design-strategy-target-audience)
+3. [UX Design - Scope](#ux-design-scope)
+    1. [UX Design - Scope - User Requirements and Expectations](#ux-design-scope-user-requirements-and-expectations)
+    2. [UX Design - Scope - Data](#ux-design-scope-data)
+    3. [UX Design - Scope - Viewing Device](#ux-design-scope-viewing-device)
+4. [User goals/ user stories: ](#user-goals-user-stories)
+    1. [Site Owner Goals](#site-owner-goals)
+    2. [First-time User Goals](#first-time-user-goals)
+    3. [Returning User Goals](#returning-user-goals)
+    4. [Other stakeholder Goals](#other-stakeholder-goals)
+5. [Further UX Design: ](#ux-design-decisions)
+    1. [Skeleton - Wireframes; ](#wireframes)
+    2. [Surface - Fonts; ](#fonts-chosen)
+    3. [Surface - Colours](#colour-scheme)
+    4. [Surface - Imagery](#design-images)
+6. [Agile Methology: ](#agile)
+    1. [Project setup](#project)
+    2. [Designing an Issue Template](#issue-template)
+    3. [Creating project issues](#project-issues)
+    4. [EPICs ](#epics)
+    5. [MoSCoW Prioritisation;](#moscow-prioritisation)
+    6. [Level of Effort estimation - Story Points](#story-points)
+    7. [Project Milestones](#milestones)
+    8. [Project Sprints](#sprints-and-iterations)
+    9. [Issue Lifecycle](#issue-lifecycle)
+    10. [Project tabular view](#tabular-projects-view)
+    11. [Kanban board](#kanban-board)
+    12. [Observations and learnings](#agile-observations-and-learnings)    
+7. [Features](#features)
+    1. [Included](#features-in-scope)
+    2. [Future Development](#features-left-to-implement)
+8. [Technology](#technologies)
+    1. [Languages](#langugages)
+    2. [Frameworks and Tools](#frameworks--tools)
+9. [Validation](#validation)
+    1. [HTML Validation](#html-validation)
+    2. [CSS Validation](#css-validation)
+    3. [Javascript Validation](#javascript-validation)
+    4. [Accessibility](#accessibility)
+    5. [Performance](#performance)
+    6. [Multi-device Testing](#multi-device-testing)
+    7. [Multi-browser Testing](#multi-browser-testing)
+    8. [Testing user stories](#testing-user-stories)
+    9. [Unfixed Bugs](#unfixed-bugs)
+10. [Accessibility](#accessibility)
+11. [Performance](#performance)
+12. [Deployment](#deployment)
+13. [Credits](#credits)
+    1. [Content](#content)
+    2. [Media](#media)
+    3. [Code](#code)
+    4. [References](#references)
+    5. [Acknowledgements](#acknowledgements)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+## About
+---------
+Welcome to Infinity Health Hub, the premier online forum dedicated to providing tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and life-stage interact in health considerations, Infinity Hub offers a safe and inclusive space where members can connect, share experiences, and access targeted health support. From sexual and mental health guidance in young adulthood to tailored reproductive health resources and holistic care guides during pregnancy, postnatal periods, and menopause, Infinity Hub is committed to empowering neurodivergent women to thrive across all life stages. Join our community and discover the support you need to navigate your well-being effectively and authentically.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+This site was created as part of a Code Institute hackathon in conjunction with Trust in Soda, April 2024. 
 
-`python3 -m http.server`
+### Responsiveness
+The site is built, with the help of Bootstrap 5, to be fully responsive so it can be used on a range of devices.
 
-A blue button should appear to click: _Make Public_,
+<details><summary>Responsive Mockup</summary>
+<img src="./django_financial_planner/docs/readme_images/val-responsive.png">
+</details>
 
-Another blue button should appear to click: _Open Browser_.
+### Live webpage link
+https://infinity-hub-15161149b9fb.herokuapp.com/
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Problem Statement
+----------------
+It is increasingly recognised that many more neurodivergent women exist than has previously been recognised or acknowledged by the medical and social professions.  This means there are a significant number of women living without a diagnosis, who carry the significant cognitive burden of 'masking'.  Masking refers to concealing aspects of ourselves, in order to be accepted and granted the same priviledges as neurotypical persons.
 
-A blue button should appear to click: _Make Public_,
+Females Hormones fluctuate at certain lifestages, which means:
+* Teenage girls with neurodiversity are much more likely to engage in risky behaviour
+* Postpartum females are more likely to suffer from Post-Natal depression 
+* Perimenopausal women (remember this can go on for up to 10 years)  in their late 40's/ early 50's, who have masked their way through their career, are more likely to burn out and exit formal employment at thhis point.
 
-Another blue button should appear to click: _Open Browser_.
+While resources and sites do exist, these tend to quite 'crowded' with difficult-to-filter information, or focus on one particular type of neurodivergence (in practice, women will often be dealing with more than one).
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Few of the existing resources allow females to tailor the information seen based on their life-stage.  Life-stage: young adult/ pregnant/ postpartum/ perimenopausal - affects hormone levels and certain additional stressors are predictable by female life-stages.
 
-To log into the Heroku toolbelt CLI:
+For people who expend considerable effort on 'masking', the process of unmasking, or being open about individual struggles, can be very uncomfortable without the assurance of a safe and supportive environment.  From the chat groups surveyed, it was not clear that they were able to provide this environment.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Project Goals
+----------------
+1. Provide a clear, informative set of resources on neurodivergent conditions and how these affect females.
+2. Filter content to the **users** lifestage and neurodiversity
+3. Safe space to allow for progressive reveal rather than abrupt unmasking.
+4. Provide a forum for peer-to-peer discussion between site members.
+5. Provide moderation to preserve site safety and security for forum discussions
+6. Provide an explanation of the InfinityHub ethos and principles.
+7. Provide a means for further contact to be made with the site owners.
+8. Which uses the capabilities of Django, HTML, CSS and Javascript.
+9. And is accessible, responsive and relevant.
 
-------
+### UX Design Strategy
+Focus is on abilty for the user to interact with content most relevant to their needs.
 
-## Release History
+### UX Design Strategy Analysis of Competitors
+(image here of the competitor analysis from google sheet)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The findings when looking at existing sites (based on search term 'neurodiversity female site' ) was that....
 
-**September 20 2023:** Update Python version to 3.9.17.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The gaps in their offering are a lack of filterable content,.....
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### UX Design Strategy Target Audience
+The target audience is females, who are aged 16+, and are living with one or mor neurodivergent conditions 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## UX Design Scope
+----------------
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## User Goals/ User Stories
+----------------
+Written in the format 'As a **role** I want to **action** to achieve **desired outcome**    
+### Site owner/moderator Goals
+* SO_01 As site owner I want to provide a platform where users can directly access useful resources
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### First-time User Goals
+* FTU_01 As a first-time user I want to
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Returning User Goals
+* RU_01 As a returning user I want to 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## UX Design Decisions
+----------------
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Wireframes
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Fonts Chosen
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Colour Scheme 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Design Images
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Agile
+An Agile approach was followed in plannning and executing this project
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### MoSCoW prioritisation
 
-------
+## Features 
+Implemented features are   
 
-## FAQ about the uptime script
+### Features in Scope 
 
-**Why have you added this script?**
+### Features Left to Implement
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Technologies
 
-**How will this affect me?**
+### Langugages
+- HTML 
+- CSS
+- Javascript
+- Python
+- Django (V4+)
+- Bootrap (V5)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Frameworks & Tools
+* Github:  used to maintain the code repository, and for some readme edits and commits
+* Git
+* Gitpod:  used for editing and for tracking code commits back to Github
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Python Libraries
+The following additional python libraries were used:
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+### Third-Party Libraries
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Validation 
 
-**Can I opt out?**
+### HTML Validation 
+- HTML
+HTML validation was performed for the various site pages as follows:  Render the page via the app, right click on the page contents and take option to copy (rendered) source.  Paste this into a file and subject that file to the W3C validator.  
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### CSS Validation
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Performance
 
----
+### Device Testing
 
-Happy coding!!
+### Multi-browser Testing
 
+### Testing Features
+
+
+### Bugs and issues
+
+## Deployment
+
+## Credits 
