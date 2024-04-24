@@ -12,16 +12,12 @@ html {
     min-height: 100%;
 }
 
-h1 {
+h1, h3, h5 {
     color: var(--darkgreen);
 }
 
 h2, p {
     color: var(--gray);
-}
-
-h5 {
-    color: var(--darkgreen);
 }
 
 body {
@@ -105,6 +101,15 @@ label {
 
 .favorite-btn:hover {
     color: var(--pink);
+}
+
+.home-signup-btn {
+    background: var(--darkpink);
+}
+
+.home-signup-btn:hover {
+    background: var(--yellow);
+    border-color: var(--darkgreen);
 }
 
 @media (min-width: 992px) {
