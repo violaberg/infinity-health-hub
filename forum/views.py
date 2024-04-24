@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Article, Post
 from .forms import ReplyForm
+from django.db.models import Q
+from .forms import PostForm
+from django.utils.text import slugify
 
 
 def forum(request):
@@ -9,17 +12,41 @@ def forum(request):
     return render(request, 'forum/forum.html')
 
 
-def article_list(request):
-    articles = Article.objects.filter(is_approved=True)
-    return render(request, 'forum/article_list.html', {'articles': articles})
-
 def post_list(request):
-    posts = Post.objects.filter(is_approved=True)
-    return render(request, 'forum/post_list.html', {'posts': posts})
+    posts = Post.objects.filter(is_approved = True)
+    
+    context = {
+        'posts': posts,
+    }
+    
+    return render(request, 'forum/post_list.html', context)
 
-def article_detail(request, slug):
-    article = get_object_or_404(Article, slug=slug)
-    return render(request, 'forum/article_detail.html', {'article': article})
+
+def create_post(request):
+    if request.method == 'POST':
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.slug = slugify(post.title)  # Populate the slug field
+            post.save()  # Save the post instance first
+
+            # Now that the post instance is saved, we can set the many-to-many relationships
+            post.life_stage.set(request.user.userprofile.lifestage.all())
+            post.neurodiversity.set(request.user.userprofile.neurodiversity.all())
+
+            messages.success(request, 'Post created successfully!')
+            return redirect('post_detail', post_id=post.id)
+        else:
+            messages.error(request, 'Failed to create post. Please ensure the form is valid.')
+    else:
+        post_form = PostForm()
+    
+    context = {
+        'post_form': post_form,
+    }
+    return render(request, 'forum/create_post.html', context)
+
 
 def post_detail(request, post_id):
     queryset = Post.objects.all()
@@ -60,3 +87,54 @@ def post_detail(request, post_id):
         'post_id': post_id
     }
     return render(request, 'forum/post_detail.html', context)
+
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    
+    if request.method == 'POST':
+        post_form = PostForm(data=request.POST, instance=post)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.is_approved = False  # Set the post to not approved
+            post.save()
+            messages.success(request, 'Post updated successfully! Please wait for approval.')
+            # return redirect('post_detail', post_id=post.id)
+            return redirect('posts')
+        else:
+            messages.error(request, 'Failed to update post. Please ensure the form is valid.')
+    else:
+        post_form = PostForm(instance=post)
+    
+    context = {
+        'post_form': post_form,
+        'post_id': post_id,
+        'post': post
+    }
+    return render(request, 'forum/edit_post.html', context)
+
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Post deleted successfully!')
+        return redirect('posts')
+    
+    context = {
+        'post': post,
+        'post_id': post_id
+    }
+    return render(request, 'forum/delete_post.html', context)
+
+
+def article_list(request):
+    articles = Article.objects.filter(is_approved=True)
+    return render(request, 'forum/article_list.html', {'articles': articles})
+
+
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    return render(request, 'forum/article_detail.html', {'article': article})
+
