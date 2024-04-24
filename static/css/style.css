@@ -26,8 +26,15 @@ body {
     padding: 0 2rem;
 }
 
+.navbar {
+    top: -5rem;
+}
+
 .logo {
-    width: 15%;
+    font-size: 20px;
+    position: relative;
+    top: -0.3em;
+    width: 25%;
 }
 
 .logo-text {
@@ -70,4 +77,10 @@ body {
 .custom-secondary-btn:hover {
     background: var(--darkgreen);
     color: var(--darkpink);
+}
+
+@media (min-width: 992px) {
+    .logo {
+        width: 15%;
+    }
 }
