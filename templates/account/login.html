@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="row mt-1">
-    <div class="custom-border col-md-6 m-auto border rounded p-3">
+    <div class="form-bg custom-border col-md-6 m-auto border rounded p-3">
       <form class="login text-center" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -21,7 +21,7 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <a class="link button secondaryAction pr-2" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class="custom-btn primaryAction btn-lg btn btn-secondary" type="submit">{% trans "Login" %}</button>
+        <button class="custom-btn primaryAction btn btn-secondary" type="submit">{% trans "Login" %}</button>
       </form>
     </div>
   </div>

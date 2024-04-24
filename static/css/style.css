@@ -23,7 +23,7 @@ body {
 
 .navbar-light .navbar-nav .nav-link {
     color: var(--darkgreen);
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .navbar {
@@ -45,18 +45,22 @@ body {
     color: var(--gray);
 }
 
-.link {
+.link, .icon {
     color: var(--darkgreen);
     font-weight: 500;
 }
 
-.link:hover {
+.link:hover, .icon:hover {
     color: var(--gray);
 }
 
 .custom-border {
     border-color: var(--gray);
     border-width: 3px;
+}
+
+.form-bg {
+    background-color: white;
 }
 
 /* Buttons */
@@ -80,6 +84,9 @@ body {
 }
 
 @media (min-width: 992px) {
+    .navbar {
+        top: 0;
+    }
     .logo {
         width: 15%;
     }
