@@ -1,14 +1,108 @@
-{% extends "base.html" %}
-
-
-{% block title %}{{ post.title }}{% endblock %}
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mt-4">
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}">
-    {% endif %}
+<h2 class="pt-2 text-center">Post Details</h2>
+
+<div class="container-fluid">
+    <div class="row g-0 pt-3">
+        <div class=" col-12 col-md-6 d-flex justify-content-center">
+            {% if post.image %}
+            <img class=" rounded" src="{{ post.image.url }}" alt="{{ post.title }} Image" style="max-width: 100%; max-height: 200px;">
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-6 text-center pt-5">
+            <h3 class="justify-content-center fw-bold">{{ post.title }}</h3>
+            <p>Author: {{ post.author.username }} | {{ post.created_at }}</p>
+            
+            <a href="#" class="btn btn-primary" aria-label="edit post">Edit</a>
+            <a href="#" class="btn btn-danger" aria-label="delete post">Delete</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <p class="card-text">{{ post.content|safe }}</p>
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="#" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="fas fa-heart"></i>Dislike</button>
+                                {% else %}
+                                <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="far fa-heart"></i>Like</button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}
+                        <span class="text-secondary"><p>{{ post.likes_count }} <i class="fas fa-heart"></i></p></span>
+                        </strong>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p>replies:
+                            {% with replies.count as total_replies %}
+                            <strong class="text-secondary">{{ total_replies }}</strong>
+                            {% endwith %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <h3 class="pt-4 fw-bold">Replies:</h3>
+            <div class="card-body">
+                {% if reply %}
+                    {% for rep in reply %}
+                        <div class="replies" style="padding: 10px;">
+                            <p class="font-weight-bold">
+                                {{ rep.author }}
+                                <span class="text-muted font-weight-normal">
+                                    {{ rep.created_on }}
+                                </span> wrote:
+                            </p>
+                            {{ rep.body | linebreaks }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Be the first to leave a reply.</p>
+                {% endif %}
+            </div>
+        </div>        
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                {% if reply %}
+                <div class="alert alert-success" role="alert">
+                    Your reply is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3 class="fw-bold">Leave a reply:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ reply_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-light btn-lg call-to-action text-dark">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
