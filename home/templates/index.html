@@ -11,11 +11,7 @@
     <div class="row">
         <div class="col-12">
             <h1 class="text-center pt-3">Welcome to Infinity Health Hub!</h1>
-            <p class="text-left">Welcome to Infinity Health Hub! We are a health and wellness community dedicated to
-                providing resources and support to individuals seeking to improve their health and well-being. Our
-                mission
-                is to empower individuals to take control of their health and make positive lifestyle changes that will
-                lead to a healthier, happier life.</p>
+            <p class="text-left">Welcome to Infinity Health Hub, the premier online forum dedicated to providing tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and life-stage interact in health considerations, Infinity Health Hub offers a safe and inclusive space where members can connect, share experiences, and access targeted health support. From sexual and mental health guidance in young adulthood to tailored reproductive health resources and holistic care guides during pregnancy, postnatal periods, and menopause, Infinity Health Hub is committed to empowering neurodivergent women to thrive across all life stages. Join our community and discover the support you need to navigate your well-being effectively and authentically.</p>
 
         </div>
     </div>
@@ -30,21 +26,21 @@
                     <img src="https://www.verywellmind.com/thmb/F1s6KG5LqpGMKQwJ5FbFLcZhmPE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Stocksy_txpcb31bffevh5100_Medium_869347-579f6e813df78c3276782d6b.jpg"
                         class="article-img" alt="Image 1">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Tips for Women Living With ADHD<span class="text-sm">external
+                        <h5 class="text-center card-title">Tips for Women Living With ADHD<span class="text-sm">external
                                 resource</span></h5>
 
                         <a href="https://www.verywellmind.com/tips-for-women-with-adhd-4062682" target="_blank"
-                            class="btn btn-primary w-50 mt-auto">Read More</a>
+                            class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
                     </div>
                 </div>
                 <div class="card h-100">
                     <img src="https://wellcome.org/_next/image?url=https%3A%2F%2Fcms.wellcome.org%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fimage_full%2Fpublic%2F2023-09%2FGettyImages-1434550332.jpg%3Fitok%3D5L2dXfnp&w=1200&q=75"
                         class="article-img" alt="Image 2">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">How do autistic people experience maternity care?</h5>
+                        <h5 class="text-center card-title">How do autistic people experience maternity care?</h5>
 
                         <a href="https://wellcome.org/news/how-do-autistic-people-experience-maternity-care"
-                            target="_blank" class="btn btn-primary w-50 mt-auto">Read More</a>
+                            target="_blank" class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
                     </div>
                 </div>
                 <div class="card">
@@ -52,10 +48,10 @@
                         class="article-img" alt="Image 3">
                     <!-- <div class="article-img"></div> -->
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Menopause and Clumsiness</h5>
+                        <h5 class="text-center card-title">Menopause and Clumsiness</h5>
                         <p class="card-text">This is the description of Article 3.</p>
                         <a href="https://bywinona.com/journal/menopause-and-clumsiness" target="_blank"
-                            class="btn btn-primary w-50 mt-auto">Read More</a>
+                            class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
                     </div>
                 </div>
             </div>
@@ -66,8 +62,8 @@
     <!-- Forum container code here -->
     {% else %}
     <div class="text-center">
-        <p>Please sign up or log in to participate in forum discussions.</p>
-        <a href="/accounts/signup/" class="btn btn-primary">Sign Up/In</a>
+        <p class="pt-5">Please <a href="{% url 'account_signup' %}" class="link">sign up</a> or <a href="{% url 'account_login' %}" class="link">log in</a> to participate in forum discussions.</p>
+        <a href="{% url 'account_signup' %}" class="home-signup-btn btn-lg btn">Sign Up/In</a>
 
     </div>
     {% endif %}
