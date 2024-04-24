@@ -4,11 +4,26 @@
     --green: #dbead5;
     --cream: #f4f5e0;
     --gray: #404040;
+    --darkgreen: #033500;
+    --darkpink: #eeada0;
+}
+
+html {
+    min-height: 100%;
+}
+
+h1 {
+    color: var(--darkgreen);
 }
 
 body {
     background: var(--green);
-    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%);
+    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%) fixed;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--darkgreen);
+    padding: 0 2rem;
 }
 
 .logo {
@@ -19,6 +34,40 @@ body {
     color: var(--gray);
 }
 
-.nav-link {
+.footer {
     color: var(--gray);
+}
+
+.link {
+    color: var(--darkgreen);
+    font-weight: 500;
+}
+
+.link:hover {
+    color: var(--gray);
+}
+
+.custom-border {
+    border-color: var(--gray);
+    border-width: 3px;
+}
+
+/* Buttons */
+.custom-btn {
+    background: var(--darkgreen);
+}
+
+.custom-btn:hover {
+    background: var(--pink);
+    border-color: var(--darkgreen);
+    color: var(--darkgreen);
+}
+
+.custom-secondary-btn {
+    background: var(--darkpink);
+}
+
+.custom-secondary-btn:hover {
+    background: var(--darkgreen);
+    color: var(--darkpink);
 }
