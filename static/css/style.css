@@ -16,6 +16,14 @@ h1 {
     color: var(--darkgreen);
 }
 
+h2, p {
+    color: var(--gray);
+}
+
+h5 {
+    color: var(--darkgreen);
+}
+
 body {
     background: var(--green);
     background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%) fixed;
@@ -63,9 +71,14 @@ body {
     background-color: white;
 }
 
+label {
+    color: var(--gray);
+}
+
 /* Buttons */
 .custom-btn {
     background: var(--darkgreen);
+    border-color: var(--darkgreen);
 }
 
 .custom-btn:hover {
@@ -75,12 +88,23 @@ body {
 }
 
 .custom-secondary-btn {
-    background: var(--darkpink);
+    border-color: var(--darkpink);
+    color: var(--darkgreen);
 }
 
-.custom-secondary-btn:hover {
+.custom-secondary-btn:hover,
+.comment-btn:hover {
     background: var(--darkgreen);
-    color: var(--darkpink);
+    border-color: var(--darkgreen);
+    color: var(--pink);
+}
+
+.comment-btn {
+    background-color: white;
+}
+
+.favorite-btn:hover {
+    color: var(--pink);
 }
 
 @media (min-width: 992px) {
