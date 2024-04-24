@@ -15,47 +15,20 @@
 
         </div>
     </div>
-    <div class="row">
-
-        <div class="col-12">
-            <h2 class="text-center">Resources</h2>
-        </div>
-        <div class="col-12">
-            <div class="card-deck h-100">
-                <div class="card  h-100">
-                    <img src="https://www.verywellmind.com/thmb/F1s6KG5LqpGMKQwJ5FbFLcZhmPE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Stocksy_txpcb31bffevh5100_Medium_869347-579f6e813df78c3276782d6b.jpg"
-                        class="article-img" alt="Image 1">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="text-center card-title">Tips for Women Living With ADHD<span class="text-sm">external
-                                resource</span></h5>
-
-                        <a href="https://www.verywellmind.com/tips-for-women-with-adhd-4062682" target="_blank"
-                            class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
-                    </div>
-                </div>
-                <div class="card h-100">
-                    <img src="https://wellcome.org/_next/image?url=https%3A%2F%2Fcms.wellcome.org%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fimage_full%2Fpublic%2F2023-09%2FGettyImages-1434550332.jpg%3Fitok%3D5L2dXfnp&w=1200&q=75"
-                        class="article-img" alt="Image 2">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="text-center card-title">How do autistic people experience maternity care?</h5>
-
-                        <a href="https://wellcome.org/news/how-do-autistic-people-experience-maternity-care"
-                            target="_blank" class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.ctfassets.net/lyqt8dkk29ch/5tlKkIAC9EbHlGffYbxSdg/724fb3dc1b858b9513b3a9a3bea37678/Portrait-of-Female-Body-in-Beige-Underwear-Posing-UTI-and-Menopause.jpeg"
-                        class="article-img" alt="Image 3">
-                    <!-- <div class="article-img"></div> -->
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="text-center card-title">Menopause and Clumsiness</h5>
-                        <p class="card-text">This is the description of Article 3.</p>
-                        <a href="https://bywinona.com/journal/menopause-and-clumsiness" target="_blank"
-                            class="custom-btn btn btn-primary w-50 mx-auto mt-auto">Read More</a>
-                    </div>
+    <div class="row h-100">
+        {% for article in articles|slice:":3" %}
+        <div class="col-md-4 my-3">
+            <div class="card">
+                {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
+                    width="400">
+                {% endif %}
+                <div class="card-body">
+                    <h2><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
     <!-- FORUM -->
     {% if user.is_authenticated %}

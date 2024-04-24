@@ -16,4 +16,5 @@ def about(request):
 
 
 def resources(request):
-    return render(request, 'resources.html')
+    articles = Article.objects.filter(is_approved=True)
+    return render(request, 'resources.html', {'articles': articles})
