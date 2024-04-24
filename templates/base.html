@@ -27,7 +27,7 @@
 <body>
     <header class="container-fluid bg-white">
         <div id="topnav" class="row pt-lg-4 d-lg-flex">
-            <div class="col-6 col-lg-6 my-auto py-1 py-lg-0 text-center text-lg-left">
+            <div class="col-lg-6 my-auto py-1 py-lg-0 text-lg-left">
               <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <img class="logo d-inline" src="{% static 'images/logo1.png' %}" alt="Rainbow color infinity symbol">
                 <h2 class="logo-text d-inline my-0">Infinity Health Hub</h2>
@@ -49,23 +49,23 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">About</a>
+                                href="{% url 'about' %}">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">Resources</a>
+                                href="{% url 'resources' %}">Resources</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">Forum</a>
+                                href="{% url 'forum' %}">Forum</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">Profile</a>
+                                href="{% url 'profile' %}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current=""
-                                href="#">Contact Us</a>
+                                href="{% url 'contact' %}">Contact Us</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
