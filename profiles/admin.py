@@ -25,7 +25,6 @@ class UserProfileAdmin(admin.ModelAdmin):
         'is__approved',
         "lifestage",
         "IFAB",
-        "StillIdentifies",
         "neurodiversity",
     )
 
