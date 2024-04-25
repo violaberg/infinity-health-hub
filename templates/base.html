@@ -115,6 +115,31 @@
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/cdf0a3356f.js" crossorigin="anonymous"></script>
+    <script>
+        // Get the current URL path
+        var path = window.location.pathname;
+        // Get the links
+        var homelink = document.getElementById('homelink');
+        var aboutlink = document.getElementById('aboutlink');
+        var resourceslink = document.getElementById('resourceslink');
+        var forumlink = document.getElementById('forumlink');
+        var profilelink = document.getElementById('profilelink');
+        var contactlink = document.getElementById('contactlink');
+        // Check which link corresponds to the current page and add the active class
+        if (path === '/') {
+            homelink.classList.add('active');
+        } else if (path === '/about/') {
+            aboutlink.classList.add('active');
+        } else if (path === '/resources/') {
+            resourceslink.classList.add('active');
+        } else if (path === '/forum/posts/') {
+            forumlink.classList.add('active/');
+        } else if (path === '/profile/') {
+            profilelink.classList.add('active/');
+        } else if (path === '/contact/') {
+            contactlink.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>
