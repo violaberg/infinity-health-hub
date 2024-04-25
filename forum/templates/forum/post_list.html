@@ -10,30 +10,6 @@
         <a href="{% url 'create_post' %}" class="btn btn-primary mb-3">Create Post</a>
     {% endif %}
     
-    <form action="{% url 'posts' %}" method="GET" class="mb-3">
-        <div class="row">
-            <div class="col-md-6">
-                <label for="life_stage_filter">Filter by Life Stage:</label>
-                <select name="life_stage" id="life_stage_filter" class="form-control">
-                    <option value="">All</option>
-                    <option value="child">Child</option>
-                    <option value="teenager">Teenager</option>
-                    <option value="adult">Adult</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="neurodiversity_filter">Filter by Neurodiversity:</label>
-                <select name="neurodiversity" id="neurodiversity_filter" class="form-control">
-                    <option value="">All</option>
-                    <option value="autism">Autism</option>
-                    <option value="adhd">ADHD</option>
-                    <option value="dyslexia">Dyslexia</option>
-                </select>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Filter</button>
-    </form>
-    
     <ul>
         {% for post in posts %}
             <li>
@@ -44,7 +20,7 @@
                 {% endif %}
             </li>
         {% empty %}
-            <li>No posts found.</li>
+            <li>No posts found matching your life stage or neurodiversity</li>
         {% endfor %}
     </ul>
 </div>
