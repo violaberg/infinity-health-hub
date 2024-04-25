@@ -51,6 +51,13 @@ body {
     color: var(--gray);
 }
 
+.navbar-image {
+    display: inline-block;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+}
+
 .footer {
     color: var(--gray);
 }
