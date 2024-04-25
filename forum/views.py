@@ -1,24 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import Q
 from django.contrib import messages
 from .models import Article, Post
 from .forms import ReplyForm
-from django.db.models import Q
 from .forms import PostForm
 from django.utils.text import slugify
 
 
-def forum(request):
-     
-    return render(request, 'forum/forum.html')
-
-
 def post_list(request):
-    posts = Post.objects.filter(is_approved = True)
-    
+    posts = Post.objects.filter(is_approved=True)
+
     context = {
         'posts': posts,
     }
-    
+
     return render(request, 'forum/post_list.html', context)
 
 
@@ -137,4 +132,3 @@ def article_list(request):
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     return render(request, 'forum/article_detail.html', {'article': article})
-
