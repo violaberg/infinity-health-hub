@@ -172,8 +172,12 @@ label {
 .toast-capper {
     height: 2px;
 }
-=======
+
 /* Remove list*/
 .post-card a:hover {
     text-decoration: none;
+}
+
+.card-bg {
+    background-color: rgba(255,228,209, 0.2);
 }
