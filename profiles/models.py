@@ -33,7 +33,7 @@ class UserProfile(models.Model):
     IFAB = models.BooleanField(default=True)
     StillIdentifies = models.BooleanField(default=True)
     neurodiversity = models.ManyToManyField(NeuroDiversity)
-    is_approved = models.BooleanField(default=True)
+    is_approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
