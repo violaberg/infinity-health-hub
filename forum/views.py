@@ -8,21 +8,27 @@ from django.utils.text import slugify
 
 
 def post_list(request):
-    user_profile = request.user.userprofile
-    life_stages = user_profile.lifestage.all()
-    neurodiversities = user_profile.neurodiversity.all()
-    
-    posts = Post.objects.filter(
-        life_stage__in=life_stages,
-        neurodiversity__in=neurodiversities,
-        is_approved=True
-    ).distinct()
+    user = request.user
+    if user.is_authenticated:
+        user_profile = request.user.userprofile
+        life_stages = user_profile.lifestage.all()
+        neurodiversities = user_profile.neurodiversity.all()
+        is_approved = user_profile.is_approved
 
-    context = {
-        'posts': posts,
-    }
+        posts = Post.objects.filter(
+            life_stage__in=life_stages,
+            neurodiversity__in=neurodiversities,
+            is_approved=True
+        ).distinct()
 
-    return render(request, 'forum/post_list.html', context)
+        context = {
+            'posts': posts,
+            'is_approved': is_approved,
+        }
+
+        return render(request, 'forum/post_list.html', context)
+
+    return render(request, 'forum/post_list.html')
 
 
 def create_post(request):
@@ -36,15 +42,17 @@ def create_post(request):
 
             # Now that the post instance is saved, we can set the many-to-many relationships
             post.life_stage.set(request.user.userprofile.lifestage.all())
-            post.neurodiversity.set(request.user.userprofile.neurodiversity.all())
+            post.neurodiversity.set(
+                request.user.userprofile.neurodiversity.all())
 
             messages.success(request, 'Post created successfully!')
             return redirect('post_detail', post_id=post.id)
         else:
-            messages.error(request, 'Failed to create post. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to create post. Please ensure the form is valid.')
     else:
         post_form = PostForm()
-    
+
     context = {
         'post_form': post_form,
     }
@@ -58,12 +66,12 @@ def post_detail(request, post_id):
     liked = False
     saved = False
 
-    if request.user.is_authenticated and post.likes.filter(id = request.user.id).exists():
+    if request.user.is_authenticated and post.likes.filter(id=request.user.id).exists():
         liked = True
 
-    if request.user.is_authenticated and post.saved_by.filter(id = request.user.id).exists():
+    if request.user.is_authenticated and post.saved_by.filter(id=request.user.id).exists():
         saved = True
-    
+
     if request.method == 'POST':
         reply_form = ReplyForm(data=request.POST)
         if reply_form.is_valid():
@@ -71,7 +79,8 @@ def post_detail(request, post_id):
             reply = reply_form.save(commit=False)
             reply.post = post
             reply.save()
-            messages.success(request, 'Reply submitted! Please wait for approval.')
+            messages.success(
+                request, 'Reply submitted! Please wait for approval.')
             return redirect('post_detail', post_id=post_id)
         else:
             reply_form = ReplyForm()
@@ -79,7 +88,7 @@ def post_detail(request, post_id):
                            'Update failed. Please ensure the form is valid.')
     else:
         reply_form = ReplyForm()
-    
+
     context = {
         'post': post,
         'reply': reply,
@@ -94,21 +103,23 @@ def post_detail(request, post_id):
 
 def edit_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    
+
     if request.method == 'POST':
         post_form = PostForm(data=request.POST, instance=post)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.is_approved = False  # Set the post to not approved
             post.save()
-            messages.success(request, 'Post updated successfully! Please wait for approval.')
+            messages.success(
+                request, 'Post updated successfully! Please wait for approval.')
             # return redirect('post_detail', post_id=post.id)
             return redirect('posts')
         else:
-            messages.error(request, 'Failed to update post. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update post. Please ensure the form is valid.')
     else:
         post_form = PostForm(instance=post)
-    
+
     context = {
         'post_form': post_form,
         'post_id': post_id,
@@ -119,12 +130,12 @@ def edit_post(request, post_id):
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    
+
     if request.method == 'POST':
         post.delete()
         messages.success(request, 'Post deleted successfully!')
         return redirect('posts')
-    
+
     context = {
         'post': post,
         'post_id': post_id
