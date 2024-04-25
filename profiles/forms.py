@@ -9,3 +9,7 @@ class UserProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(UserProfileForm, self).__init__(*args, **kwargs)
         self.fields['alias'].required = True
+        self.fields['IFAB'].label = "Assigned Female at Birth"
+        self.fields['neurodiversity'].label = "Neurodivergence"
+        
+

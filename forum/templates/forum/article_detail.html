@@ -11,4 +11,8 @@
     {% endif %}
     <p>{{ article.content| safe }}</p>
 </div>
+<!-- DMcC 25/04 add home button -->
+<div class="text-center mb-2">
+  <a href="{% url 'resources' %}" class="custom-btn btn">Home</a>
+</div>
 {% endblock %}
