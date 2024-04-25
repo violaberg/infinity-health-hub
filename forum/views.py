@@ -8,7 +8,15 @@ from django.utils.text import slugify
 
 
 def post_list(request):
-    posts = Post.objects.filter(is_approved=True)
+    user_profile = request.user.userprofile
+    life_stages = user_profile.lifestage.all()
+    neurodiversities = user_profile.neurodiversity.all()
+    
+    posts = Post.objects.filter(
+        life_stage__in=life_stages,
+        neurodiversity__in=neurodiversities,
+        is_approved=True
+    ).distinct()
 
     context = {
         'posts': posts,
