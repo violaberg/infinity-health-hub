@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container mt-4">
   <h1>{{ article.title }}</h1>
-    <p>{{ article.content }}</p>
+    <p>{{ article.content| safe }}</p>
     {% if article.image %}
         <img src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 400px; height: 400px;">
     {% endif %}
