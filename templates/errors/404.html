@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center bg-image position-relative">
+    <div class="d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle text-white text-center w-75">
+        <!-- Hero text -->
+        <div class="bg-dark bg-opacity-75 p-4 rounded">
+            <h1 class="hero-text text-uppercase">The page you are looking for isn't available</h1>
+            <a class="btn btn-outline-light call-to-action text-dark" href="{% url 'home' %}" role="button">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
