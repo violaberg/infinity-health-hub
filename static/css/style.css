@@ -12,7 +12,7 @@ html {
     min-height: 100%;
 }
 
-h1, h3, h5 {
+h1, h3, h5, .team {
     color: var(--darkgreen);
 }
 

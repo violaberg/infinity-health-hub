@@ -91,7 +91,8 @@
 
         {% endblock %}
     </div>
-    <footer class="footer fixed-bottom mt-auto text-center bg-white py-3">
+    <footer class="footer mt-auto text-center bg-white py-3">
+        <p class="m-0"><a href="{% url 'about' %}" class="link">FAQ</a></p>
         <p class="m-0">
             <a href="{% url 'contact' %}" class="link">Contact Us</a>
         </p>
@@ -99,7 +100,7 @@
             <i class="icon fa-brands fa-x-twitter"></i>
         </p>
         {% block copyright %}
-        <p class="m-0 text-center">&copy; Infinity Squad 2024</p>
+        <p class="m-0 text-center">&copy; <span class="team">Infinity Squad</span> 2024</p>
         {% endblock copyright %}
     </footer>
     <script src="https://kit.fontawesome.com/cdf0a3356f.js" crossorigin="anonymous"></script>
