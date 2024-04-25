@@ -10,8 +10,8 @@
 <div class="container pb-5 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center pt-3">Welcome to Infinity Health Hub!</h1>
-            <p class="text-left">Welcome to Infinity Health Hub, the premier online forum dedicated to providing tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and life-stage interact in health considerations, Infinity Health Hub offers a safe and inclusive space where members can connect, share experiences, and access targeted health support. From sexual and mental health guidance in young adulthood to tailored reproductive health resources and holistic care guides during pregnancy, postnatal periods, and menopause, Infinity Health Hub is committed to empowering neurodivergent women to thrive across all life stages. Join our community and discover the support you need to navigate your well-being effectively and authentically.</p>
+            <h1 class="text-center pt-4">Welcome to Infinity Health Hub!</h1>
+            <p class="text-left pt-3">Welcome to Infinity Health Hub, the premier online forum dedicated to providing tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and life-stage interact in health considerations, Infinity Health Hub offers a safe and inclusive space where members can connect, share experiences, and access targeted health support. From sexual and mental health guidance in young adulthood to tailored reproductive health resources and holistic care guides during pregnancy, postnatal periods, and menopause, Infinity Health Hub is committed to empowering neurodivergent women to thrive across all life stages. Join our community and discover the support you need to navigate your well-being effectively and authentically.</p>
 
         </div>
     </div>
@@ -36,7 +36,7 @@
     {% else %}
     <div class="text-center">
         <p class="pt-5">Please <a href="{% url 'account_signup' %}" class="link">sign up</a> or <a href="{% url 'account_login' %}" class="link">log in</a> to participate in forum discussions.</p>
-        <a href="{% url 'account_signup' %}" class="home-signup-btn btn-lg btn">Sign Up/In</a>
+        <a href="{% url 'account_signup' %}" class="custom-btn btn">Join community</a>
 
     </div>
     {% endif %}

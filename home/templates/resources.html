@@ -8,19 +8,19 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Articles <span class="h4 text-muted">(most recent first)</span></h2>
+            <h1 class="pb-3">Articles <span class="h4 text-muted">(most recent first)</span></h2>
         </div>
 
 
         {% for article in articles %}
-        <div class="col-md-4 mb-2 rounded">
+        <div class="col-md-4 mb-4 rounded">
             <div class="card mb-4 shadow-sm h-100 rounded">
                 {% if article.image %}
                 <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
                     width="400">
                 {% endif %}
                 <div class="card-body">
-                    <h2><a href="{% url 'article_detail' article.slug %}">{{ article.title }}</a></h2>
+                    <h5><a href="{% url 'article_detail' article.slug %}" class="link">{{ article.title }}</a></h5>
                 </div>
             </div>
         </div>

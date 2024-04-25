@@ -81,12 +81,33 @@ label {
 .custom-btn {
     background: var(--darkgreen);
     border-color: var(--darkgreen);
+    color: var(--cream);
 }
 
 .custom-btn:hover {
     background: var(--pink);
     border-color: var(--darkgreen);
     color: var(--darkgreen);
+}
+
+.custom-nav-btn {
+    background: var(--green);
+    border-color: var(--darkgreen);
+}
+
+.custom-nav-btn:hover {
+    background: var(--pink);
+    border-color: var(--darkpink);
+}
+
+.custom-signup-nav-btn {
+    background: var(--pink);
+    border-color: var(--darkpink);
+}
+
+.custom-signup-nav-btn:hover {
+    background: var(--green);
+    border-color: var(--darkgreen);
 }
 
 .custom-secondary-btn {
@@ -107,15 +128,6 @@ label {
 
 .favorite-btn:hover {
     color: var(--pink);
-}
-
-.home-signup-btn {
-    background: var(--darkpink);
-}
-
-.home-signup-btn:hover {
-    background: var(--yellow);
-    border-color: var(--darkgreen);
 }
 
 @media (min-width: 992px) {
