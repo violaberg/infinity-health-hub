@@ -46,6 +46,7 @@ CSRF_TRUSTED_ORIGINS = [
                         + 'ws-eu110.gitpod.io'),
                         'https://8000-vasileios20-infinityhub-n7uovthffb0.ws-eu110.gitpod.io',
                         'https://8000-vasileios20-infinityhub-n1cualn8mni.ws-eu110.gitpod.io',
+                        'https://8000-vasileios20-infinityhub-qyq3ge7a31m.ws-eu110.gitpod.io',
                        ]
 
 
@@ -96,6 +97,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'infinity_hub.urls'
+
+# DMcC Removed account email verification as throwing a ports error 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 TEMPLATES = [
     {
