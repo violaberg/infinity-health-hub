@@ -91,11 +91,9 @@
 
         {% endblock %}
     </div>
-    <footer class="footer mt-auto text-center bg-white py-3">
-        <p class="m-0"><a href="{% url 'about' %}" class="link">FAQ</a></p>
+    <footer class="footer text-center bg-white py-3">
         <p class="m-0">
-            <a href="{% url 'contact' %}" class="link">Contact Us</a>
-            <a href="{% url 'resources' %}" class="link">Resources</a>
+            <a href="{% url 'about' %}" class="link">FAQ |</a><a href="{% url 'contact' %}" class="link"> Contact Us |</a><a href="{% url 'resources' %}" class="link"> Resources</a>
         </p>
         <p class="m-0 text-center">Find us on social: <i class="icon fab fa-facebook-square ms-3"></i>
             <i class="icon fa-brands fa-x-twitter"></i>
