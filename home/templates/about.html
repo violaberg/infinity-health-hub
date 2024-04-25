@@ -12,7 +12,9 @@
     <p>Our community is more than just a forum; it's a sanctuary where differences are celebrated, voices are heard, and personal growth is nurtured. Whether you're seeking advice, looking for resources, or simply need a friend who understands, you'll find what you're looking for here.</p>
     <p>Join in with the discussion, where you can be yourself, explore your strengths, and receive the support you deserve. Together, we are stronger.</p>
 
-<h2 class="text-center">Meet the Team</h2>
+<p>Frequently Asked Questions are available at the bottom of this page.<a href="#faq-section" class="link faq-link"> Click here for FAQ</a></p>
+
+<h2 class="text-center py-3">Meet the Team</h2>
 
 <h3>Viola Bergere</h3>
 <p> Paragraph about Viola TBA </p>
@@ -87,16 +89,65 @@
     </div>
 </div>
 
-<h3 class="text-center">Frequently Asked Questions:</h3>
+<div id="faq-section">
+    <h3 class="text-center py-3">Frequently Asked Questions</h3>
 
-<li>
-    <ul>
-        How do I contribute to the discussions?
-    </ul>
-    <ul>How do I register for an account?
-    </ul>
-</li>
+    <div class="accordion pb-3" id="faqAccordion">
+        <!-- FAQ Item 1 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading1">
+                <h3 class="mb-0">
+                    <button class="link btn btn-link" type="button" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                        How do I contribute to the discussions?
+                    </button>
+                </h3>
+            </div>
+
+            <div id="faqCollapse1" class="collapse" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading2">
+                <h3 class="mb-0">
+                    <button class="link btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                        How do I register for an account?
+                    </button>
+                </h3>
+            </div>
+
+            <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more FAQ items similarly -->
+    </div>
+</div>
+
 
 <p></p>
 <!-- </main> -->
 {% endblock %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var faqLink = document.querySelector(".faq-link");
+
+        faqLink.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // Scroll to the FAQ section
+            var faqSection = document.querySelector("#faq-section");
+            faqSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
