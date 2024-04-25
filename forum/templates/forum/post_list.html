@@ -34,26 +34,26 @@
 
     {% for post in posts %}
     
-        <div class="card mb-1 post-card">
-            <div class="card-body">
+        <div class="card mb-2 post-card rounded shadow card-bg">
+            <div class="card-body pb-0">
+                <p><img class="navbar-image rounded-circle" src="{{ request.user.userprofile.profile_image.url }}"
+                        alt="Users avatar logo"> {{ request.user }} &#8226; {{ post.created_on }}</p>
                 <a href="{% url 'post_detail' post.id %}">
                     <h5 class="card-title">{{ post.title }}</h5>
-                    <p>{{ post.content|truncatechars:100|safe }}</p>
-                </a>
-
-                {% if user.is_authenticated and user == post.author %}
-                <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary">Edit</a>
-                <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger">Delete</a>
-                {% endif %}
-
+                    <p class="p-0">{{ post.content|truncatechars:100|safe }}</p>
+                </a>      
             </div>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-start align-items-center pb-2">
                
                 <!-- Like Counter -->
-                <span class="text-muted"><i class="far fa-thumbs-up"></i>Likes: {{ post.likes.count }} </span>
+                <span class="text-muted pl-4"><i class="far fa-thumbs-up"></i> Likes: {{ post.likes.count }} </span>
 
                 <!-- reply Counter -->
-                <span class="text-muted"><i class="far fa-comment"></i>Replies: {{ replies_count }}</span>
+                <span class="text-muted pl-4"><i class="far fa-comment"></i> Replies: {{ post.replies.count }}</span>
+                {% if user.is_authenticated and user == post.author %}
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary ml-auto mr-1 mb-1">Edit</a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1 mr-4">Delete</a>
+                {% endif %}
 
             </div>
 
