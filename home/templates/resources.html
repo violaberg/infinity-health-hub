@@ -16,8 +16,10 @@
         <div class="col-md-4 mb-4 rounded">
             <div class="card mb-4 shadow-sm h-100 rounded">
                 {% if article.image %}
-                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
-                    width="400">
+                <a href="{% url 'article_detail' article.slug %}">
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
+                        width="400">
+                </a>
                 {% endif %}
                 <div class="card-body">
                     <h5><a href="{% url 'article_detail' article.slug %}" class="link">{{ article.title }}</a></h5>
