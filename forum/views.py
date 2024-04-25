@@ -5,25 +5,47 @@ from .models import Article, Post
 from .forms import ReplyForm
 from .forms import PostForm
 from django.utils.text import slugify
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def post_list(request):
     user = request.user
+    saved_filter = request.GET.get('saved_posts')  # Get the saved filter from the query parameters
+
     if user.is_authenticated:
         user_profile = request.user.userprofile
         life_stages = user_profile.lifestage.all()
         neurodiversities = user_profile.neurodiversity.all()
         is_approved = user_profile.is_approved
+        saved_posts = user.saved_posts.all()
 
-        posts = Post.objects.filter(
-            life_stage__in=life_stages,
-            neurodiversity__in=neurodiversities,
-            is_approved=True
-        ).distinct()
+        if saved_filter == 'true':
+            # Filter posts to show only saved posts
+            posts = saved_posts.filter(
+                life_stage__in=life_stages,
+                neurodiversity__in=neurodiversities,
+                is_approved=True
+            ).distinct()
+        elif saved_filter == 'false':
+            # Filter posts to show only posts that are not saved
+            posts = Post.objects.filter(
+                life_stage__in=life_stages,
+                neurodiversity__in=neurodiversities,
+                is_approved=True
+            ).exclude(id__in=saved_posts).distinct()
+        else:
+            # Show all posts
+            posts = Post.objects.filter(
+                life_stage__in=life_stages,
+                neurodiversity__in=neurodiversities,
+                is_approved=True
+            ).distinct()
 
         context = {
             'posts': posts,
             'is_approved': is_approved,
+            'saved_posts': saved_posts
         }
 
         return render(request, 'forum/post_list.html', context)
@@ -31,14 +53,15 @@ def post_list(request):
     return render(request, 'forum/post_list.html')
 
 
+@login_required
 def create_post(request):
     if request.method == 'POST':
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
-            post.slug = slugify(post.title)  # Populate the slug field
-            post.save()  # Save the post instance first
+            post.slug = slugify(post.title)
+            post.save()
 
             # Now that the post instance is saved, we can set the many-to-many relationships
             post.life_stage.set(request.user.userprofile.lifestage.all())
@@ -59,6 +82,7 @@ def create_post(request):
     return render(request, 'forum/create_post.html', context)
 
 
+@login_required
 def post_detail(request, post_id):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, pk=post_id)
@@ -101,8 +125,12 @@ def post_detail(request, post_id):
     return render(request, 'forum/post_detail.html', context)
 
 
+@login_required
 def edit_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+
+    if post.author != request.user:
+        return render(request, 'forum/unauthorised_access.html')
 
     if request.method == 'POST':
         post_form = PostForm(data=request.POST, instance=post)
@@ -128,8 +156,12 @@ def edit_post(request, post_id):
     return render(request, 'forum/edit_post.html', context)
 
 
+@login_required
 def delete_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+
+    if post.author != request.user:
+        return render(request, 'forum/unauthorised_access.html')
 
     if request.method == 'POST':
         post.delete()
@@ -141,6 +173,28 @@ def delete_post(request, post_id):
         'post_id': post_id
     }
     return render(request, 'forum/delete_post.html', context)
+
+
+@login_required
+def like_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+    return redirect('post_detail', post_id=post_id)
+
+
+@login_required
+def save_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if post.saved_by.filter(id=request.user.id).exists():
+        post.saved_by.remove(request.user)
+        messages.success(request, 'Post removed from saved posts.')
+    else:
+        post.saved_by.add(request.user)
+        messages.success(request, 'Post saved successfully.')
+    return redirect('post_detail', post_id=post_id)
 
 
 def article_list(request):

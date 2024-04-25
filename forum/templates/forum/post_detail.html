@@ -30,9 +30,9 @@
                 <div class="row">
 
                     <div class="col-12 col-md-6">
-                        <strong>
+                         <strong>
                             {% if user.is_authenticated %}
-                            <form class="d-inline" action="#" method="POST">
+                            <form class="d-inline" action="{% url 'like_post' post.id %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
                                 <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="fas fa-heart"></i>Dislike</button>
@@ -40,6 +40,15 @@
                                 <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="far fa-heart"></i>Like</button>
                                 {% endif %}
                             </form>
+                            <form class="d-inline" action="{% url 'save_post' post.id %}" method="POST">
+                                {% csrf_token %}
+                                {% if saved %}
+                                <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="fas fa-heart"></i>Unsave</button>
+                                {% else %}
+                                <button type="submit" class="p-1" name="postpost_id" value="{{post_id}}"><i class="far fa-heart"></i>Save</button>
+                                {% endif %}
+                            </form>
+
                             {% else %}
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
