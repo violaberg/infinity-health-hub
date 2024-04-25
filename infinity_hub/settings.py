@@ -98,6 +98,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'infinity_hub.urls'
 
+# DMcC Removed account email verification as throwing a ports error 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 TEMPLATES = [
