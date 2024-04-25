@@ -4,11 +4,11 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-  <h1>{{ article.title }}</h1>
-    <p>{{ article.content| safe }}</p>
-    {% if article.image %}
-        <img src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 400px; height: 400px;">
+<div class="container text-center mt-4">
+  <h1 class="text-center">{{ article.title }}</h1>
+  {% if article.image %}
+        <img class="img-fluid py-2" src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 400px; height: 400px;">
     {% endif %}
+    <p>{{ article.content| safe }}</p>
 </div>
 {% endblock %}
