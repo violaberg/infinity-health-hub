@@ -58,6 +58,11 @@ body {
     border-radius: 50%;
 }
 
+nav a.active {
+    font-weight: bold;
+    color: rgb(21, 21, 22);
+  }
+
 .footer {
     color: var(--gray);
 }
@@ -166,4 +171,9 @@ label {
 }
 .toast-capper {
     height: 2px;
+}
+=======
+/* Remove list*/
+.post-card a:hover {
+    text-decoration: none;
 }
