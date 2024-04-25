@@ -49,7 +49,7 @@
                 <span class="text-muted pl-4"><i class="far fa-thumbs-up"></i> Likes: {{ post.likes.count }} </span>
 
                 <!-- reply Counter -->
-                <span class="text-muted pl-4"><i class="far fa-comment"></i> Replies: {{ replies_count }}</span>
+                <span class="text-muted pl-4"><i class="far fa-comment"></i> Replies: {{ post.replies.count }}</span>
                 {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary ml-auto mr-1 mb-1">Edit</a>
                 <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1 mr-4">Delete</a>
