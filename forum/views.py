@@ -1,11 +1,14 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models import Q
 from django.contrib import messages
 from .models import Article, Post
 from .forms import ReplyForm
-from .forms import PostForm
+from .forms import PostForm, ArticleForm
 from django.utils.text import slugify
-from django.contrib.auth.decorators import login_required
+
+
+def is_admin(user):
+    return user.is_superuser
 
 
 @login_required
@@ -202,6 +205,60 @@ def article_list(request):
     return render(request, 'forum/article_list.html', {'articles': articles})
 
 
-def article_detail(request, slug):
-    article = get_object_or_404(Article, slug=slug)
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
     return render(request, 'forum/article_detail.html', {'article': article})
+
+
+@user_passes_test(is_admin)
+def create_article(request):
+
+    if not request.user.is_superuser:
+        return render(request, 'forum/unauthorised_access.html')
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.author = request.user
+            article.slug = slugify(article.title)
+            article.save()
+            messages.success(request, 'Article created successfully! Please wait for approval.')
+            return redirect('article_detail', article_id=article.id)
+    else:
+        form = ArticleForm()
+    return render(request, 'forum/create_article.html', {'form': form})
+
+
+@user_passes_test(is_admin)
+def update_article(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+
+    if not request.user.is_superuser:
+        return render(request, 'forum/unauthorised_access.html')
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form = form.save(commit=False)
+            article.is_approved = False
+            form.save()
+            messages.success(request, 'Article updated successfully! Please wait for approval.')
+            return redirect('article_detail', article_id=article.id)
+    else:
+        form = ArticleForm(instance=article)
+    return render(request, 'forum/update_article.html', {'form': form, 'article': article})
+
+
+@user_passes_test(is_admin)
+def delete_article(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+
+    if not request.user.is_superuser:
+        return render(request, 'forum/unauthorised_access.html')
+    
+    if request.method == 'POST':
+        article.delete()
+        messages.success(request, 'Article deleted successfully!')
+        return redirect('resources')
+    return render(request, 'forum/delete_article.html', {'article': article, 'article_id': article_id})

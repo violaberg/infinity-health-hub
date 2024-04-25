@@ -8,11 +8,14 @@
 
 <br>
 <div class="form-group">
-    <form method="POST" enctype="multipart/form-data">
+    <form class="d-inline" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-secondary">Update</button>
     </form>
+    {% if user.is_superuser %}
+        <a href="{% url 'delete_article' article.id %}" class="btn-danger btn">Delete Article</a>
+    {% endif %}
 </div>
 </section>
 {% endblock %}
