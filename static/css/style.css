@@ -58,6 +58,11 @@ body {
     border-radius: 50%;
 }
 
+nav a.active {
+    font-weight: bold;
+    color: rgb(21, 21, 22);
+  }
+
 .footer {
     color: var(--gray);
 }
@@ -152,4 +157,9 @@ label {
     object-fit: cover;
     width: 100%;
     height: 200px;
+}
+
+/* Remove list*/
+.post-card a:hover {
+    text-decoration: none;
 }

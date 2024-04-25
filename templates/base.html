@@ -52,22 +52,25 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'home' %}">Home</a>
+                                <a class="nav-link" aria-current="" href="{% url 'home' %}" id="homelink">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'about' %}">About</a>
+                                <a class="nav-link" aria-current="" href="{% url 'about' %}" id="aboutlink">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'resources' %}">Resources</a>
+                                <a class="nav-link" aria-current="" href="{% url 'resources' %}"
+                                    id="resourceslink">Resources</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'posts' %}">Forum</a>
+                                <a class="nav-link" aria-current="" href="{% url 'posts' %}" id="forumlink">Forum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'profile' %}">Profile</a>
+                                <a class="nav-link" aria-current="" href="{% url 'profile' %}"
+                                    id="profilelink">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="" href="{% url 'contact' %}">Contact Us</a>
+                                <a class="nav-link" aria-current="" href="{% url 'contact' %}" id="contactlink">Contact
+                                    Us</a>
                             </li>
                             {% if user.is_authenticated %}
                             <li class="nav-link p-0">
@@ -115,6 +118,31 @@
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/cdf0a3356f.js" crossorigin="anonymous"></script>
+    <script>
+        // Get the current URL path
+        var path = window.location.pathname;
+        // Get the links
+        var homelink = document.getElementById('homelink');
+        var aboutlink = document.getElementById('aboutlink');
+        var resourceslink = document.getElementById('resourceslink');
+        var forumlink = document.getElementById('forumlink');
+        var profilelink = document.getElementById('profilelink');
+        var contactlink = document.getElementById('contactlink');
+        // Check which link corresponds to the current page and add the active class
+        if (path === '/') {
+            homelink.classList.add('active');
+        } else if (path === '/about/') {
+            aboutlink.classList.add('active');
+        } else if (path === '/resources/') {
+            resourceslink.classList.add('active');
+        } else if (path === '/forum/posts/') {
+            forumlink.classList.add('active');
+        } else if (path === '/profile/') {
+            profilelink.classList.add('active');
+        } else if (path === '/contact/') {
+            contactlink.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>
