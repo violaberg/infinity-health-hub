@@ -5,14 +5,14 @@
 {% block content %}
 <div class="container mt-4">
 
-    <h1>Posts</h1>
+    <h1 class="text-center">Posts</h1>
 
     {% if not user.is_authenticated %}
-    <p>You must be logged in to create a post.</p>
+    <p class="text-center">You must be logged in to create a post.</p>
     {% else %}
     {% if user.is_authenticated and is_approved %}
 
-    <a href="{% url 'create_post' %}" class="btn btn-primary mb-3">Create Post</a>
+    <a href="{% url 'create_post' %}" class="custom-btn btn btn-primary mb-3">Create Post</a>
 
     <form method="GET" action="{% url 'posts' %}" class="my-4">
     <div class="row gx-3 align-items-center">
