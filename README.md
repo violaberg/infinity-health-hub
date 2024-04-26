@@ -159,16 +159,54 @@ An Agile approach was followed in plannning and executing this project
 
 ## Features 
 Implemented features are   
-**F01  Lifestage and Neurodiversity personalisation**
-Each user can nominate their The content displayed on the site is personalised to the users 
+**F01 Ability to access information Resources as Guest user**
+Guest users wishing to learn more about certain conditions or challenges, can view articles (optionally using the lifestage and nuerodivergence filters)  
 
-<details><summary>Landing Page</summary>
-<img src="./docs/readme_images/res_loggedin_filtered.png.png">
+<details><summary>View site resources</summary>
+<img src="./docs/readme_images/res_loggedin_nofilter.png">
+</details>
+
+**F01  Lifestage and Neurodiversity personalisation**
+The content displayed on the site is personalised to the signed-in users 
+
+<details><summary>Create a user</summary>
+<img src="./docs/readme_images/signup_page.png">
+</details>
+
+
+<details><summary>User Profile maintenance</summary>
+<img src="./docs/readme_images/user-profile.png">
+</details>
+
+<details><summary>User Profile maintenance</summary>
+<img src="./docs/readme_images/user-profile.png">
+</details>
+
+<details><summary>Article Maintenance</summary>
+<img src="./docs/readme_images/article-setup.png">
+</details>
+
+<details><summary>Resources visible to logged in user - before filter applied</summary>
+<img src="./docs/readme_images/res_loggedin_nofilter.png">
+</details>
+
+<details><summary>Resources visible to users - after filter applied</summary>
+<img src="./docs/readme_images/res_loggedin_filtered.png">
 </details>
 
 **F02 Moderated Broadcast Resources - Articles**
 Articles are created by the site admin and made available to the users via the Resources page.  
 Guest users can see the full range of articles, they can also filter by lifestage and neruodivergence to target their reading.
+
+<details><summary>Homepage - 3 most recent articles</summary>
+<img src="./docs/readme_images/homepage.png">
+</details>
+
+<details><summary></summary>
+<img src="./docs/readme_images/res_loggedin_filtered.png">
+</details>
+
+
 
 **F03 Private, Moderated peer-to-peer discussions**
 Discussion Forum  - posts are created and tagged with specific lifestage(s) and neurodivergences.
