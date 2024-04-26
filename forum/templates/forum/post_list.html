@@ -3,7 +3,7 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
 
     <h1 class="text-center">Posts</h1>
 
@@ -51,10 +51,10 @@
                 <!-- reply Counter -->
                 <span class="text-muted pl-4"><i class="far fa-comment"></i> Replies: {{ post.replies.count }}</span>
             </div>
-            <div class="col-md-4 ml-4 ml-md-auto">
+            <div class="col-md-4 ml-4 mr-2">
                 {% if user.is_authenticated and user == post.author %}
-                <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary ml-auto mr-1 mb-1">Edit</a>
-                <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1 mr-4">Delete</a>
+                <a href="{% url 'edit_post' post.id %}" class="custom-btn btn btn-sm mb-1">Edit</a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1">Delete</a>
                 {% endif %}
 
             </div>
