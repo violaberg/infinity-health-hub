@@ -31,16 +31,6 @@ Developer:  **Team Infinity**, Apr 2024
 8. [Technology](#technologies)
     1. [Languages](#langugages)
     2. [Frameworks and Tools](#frameworks--tools)
-9. [Validation](#validation)
-    1. [HTML Validation](#html-validation)
-    2. [CSS Validation](#css-validation)
-    3. [Javascript Validation](#javascript-validation)
-    4. [Accessibility](#accessibility)
-    5. [Performance](#performance)
-    6. [Multi-device Testing](#multi-device-testing)
-    7. [Multi-browser Testing](#multi-browser-testing)
-    8. [Testing user stories](#testing-user-stories)
-    9. [Unfixed Bugs](#unfixed-bugs)
 10. [Accessibility](#accessibility)
 11. [Performance](#performance)
 12. [Deployment](#deployment)
@@ -133,18 +123,7 @@ The target audience is females, who are aged 16+, and are living with one or mor
 ----------------
 
 ### Wireframes
-<details><summary>Landing Page</summary>
-<img src="./docs/readme_images/wf1-landing-pg.png">
-</details>
-
-
-<details><summary>Product detail</summary>
-<img src="./docs/readme_images/wf3-product-detail.png">
-</details>
-
-<details><summary>Create a basket</summary>
-<img src="./docs/readme_images/wf4-basket.png">
-</details>
+Wireframes were created and used for design agreement
 
 ### Fonts Chosen
 
