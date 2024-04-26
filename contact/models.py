@@ -8,6 +8,5 @@ class Contact(models.Model):
     subject = models.CharField(max_length=100)
     message = models.TextField(max_length=700)
 
-
     def __str__(self):
         return f"{self.name}"

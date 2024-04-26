@@ -2,17 +2,21 @@ from .models import UserProfile, NeuroDiversity, LifeStage
 from django.contrib import admin
 
 # Register your models here.
+
+
 class NeuroDiversityAdmin(admin.ModelAdmin):
     list_display = (
         'neurodiversity',
         'description',
     )
 
+
 class LifeStageAdmin(admin.ModelAdmin):
     list_display = (
         'lifestage',
         'description',
     )
+
 
 class UserProfileAdmin(admin.ModelAdmin):
     """" User Profile admin """
@@ -27,6 +31,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         "IFAB",
         "neurodiversity",
     )
+
 
 admin.site.register(UserProfile)
 admin.site.register(NeuroDiversity)

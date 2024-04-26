@@ -11,11 +11,11 @@
             <form method="POST" action="{% url 'create_post' %}">
                 {% csrf_token %}
                 <fieldset class="rounded px-3">
-                <legend class="fieldset-label small text-black px-2 w-auto"></legend>
-                {{ post_form.title | as_crispy_field }}
-                {{ post_form.content | as_crispy_field }}
-                {{ post_form.image | as_crispy_field }}
-                
+                    <legend class="fieldset-label small text-black px-2 w-auto"></legend>
+                    {{ post_form.title | as_crispy_field }}
+                    {{ post_form.content | as_crispy_field }}
+                    {{ post_form.image | as_crispy_field }}
+
                 </fieldset>
                 <button class="custom-btn" type="submit">Create</button>
             </form>

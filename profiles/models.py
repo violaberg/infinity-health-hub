@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class NeuroDiversity(models.Model):
     """  A user profile model for maintaining default delivery information and order history   """
     neurodiversity = models.CharField(max_length=30)
@@ -14,12 +15,14 @@ class NeuroDiversity(models.Model):
     def __str__(self):
         return str(self.neurodiversity)
 
+
 class LifeStage(models.Model):
     lifestage = models.CharField(max_length=30)
-    description = models.CharField(max_length=255) 
+    description = models.CharField(max_length=255)
 
     def __str__(self):
         return str(self.lifestage)
+
 
 class UserProfile(models.Model):
     """  A user profile model to create and manage user profiles  """
@@ -28,7 +31,7 @@ class UserProfile(models.Model):
     about_me = models.CharField(max_length=255, blank=True)
     profile_image = models.ImageField(upload_to='images',
                                       default='placeholder.png')
-    
+
     lifestage = models.ManyToManyField(LifeStage)
     IFAB = models.BooleanField(default=True)
     StillIdentifies = models.BooleanField(default=True)
@@ -38,11 +41,10 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return (str(self.alias) if self.alias else str(self.user.username))
-    
+
     class Meta:
         """ order by recently created """
         ordering = ['-created_on']
-
 
 
 # DMcC 23/04/24: Below is a signal this will ensure that whenever

@@ -24,4 +24,3 @@ class ArticleForm(forms.ModelForm):
             'title': SummernoteWidget(),
             'content': SummernoteWidget(),
         }
-        

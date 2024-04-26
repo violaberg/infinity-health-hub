@@ -1,6 +1,7 @@
 from django import forms
 from .models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -11,5 +12,3 @@ class UserProfileForm(forms.ModelForm):
         self.fields['alias'].required = True
         self.fields['IFAB'].label = "Assigned Female at Birth"
         self.fields['neurodiversity'].label = "Neurodivergence"
-        
-

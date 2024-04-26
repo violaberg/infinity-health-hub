@@ -14,7 +14,8 @@ def is_admin(user):
 @login_required
 def post_list(request):
     user = request.user
-    saved_filter = request.GET.get('saved_posts')  # Get the saved filter from the query parameters
+    # Get the saved filter from the query parameters
+    saved_filter = request.GET.get('saved_posts')
 
     if user.is_authenticated:
         user_profile = request.user.userprofile
@@ -223,7 +224,8 @@ def create_article(request):
             article.author = request.user
             article.slug = slugify(article.title)
             article.save()
-            messages.success(request, 'Article created successfully! Please wait for approval.')
+            messages.success(
+                request, 'Article created successfully! Please wait for approval.')
             return redirect('article_detail', article_id=article.id)
     else:
         form = ArticleForm()
@@ -243,7 +245,8 @@ def update_article(request, article_id):
             form = form.save(commit=False)
             article.is_approved = False
             form.save()
-            messages.success(request, 'Article updated successfully! Please wait for approval.')
+            messages.success(
+                request, 'Article updated successfully! Please wait for approval.')
             return redirect('article_detail', article_id=article.id)
     else:
         form = ArticleForm(instance=article)
@@ -256,7 +259,7 @@ def delete_article(request, article_id):
 
     if not request.user.is_superuser:
         return render(request, 'forum/unauthorised_access.html')
-    
+
     if request.method == 'POST':
         article.delete()
         messages.success(request, 'Article deleted successfully!')

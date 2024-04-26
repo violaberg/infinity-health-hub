@@ -12,7 +12,8 @@ from django.contrib.auth.decorators import login_required
 def user_profile(request):
     """ Displays the user's profile. """
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileForm(request.POST, request.FILES,
+                               instance=request.user.userprofile)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully.")
@@ -21,4 +22,3 @@ def user_profile(request):
         form = UserProfileForm(instance=request.user.userprofile)
 
     return render(request, 'profiles/profile.html', {'form': form})
-

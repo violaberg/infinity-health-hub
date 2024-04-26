@@ -11,7 +11,14 @@
     <div class="row">
         <div class="col-12">
             <h1 class="text-center pt-4">Welcome to Infinity Health Hub!</h1>
-            <p class="text-left pt-3">Welcome to Infinity Health Hub, the premier online forum dedicated to providing tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and life-stage interact in health considerations, Infinity Health Hub offers a safe and inclusive space where members can connect, share experiences, and access targeted health support. From sexual and mental health guidance in young adulthood to tailored reproductive health resources and holistic care guides during pregnancy, postnatal periods, and menopause, Infinity Health Hub is committed to empowering neurodivergent women to thrive across all life stages. Join our community and discover the support you need to navigate your well-being effectively and authentically.</p>
+            <p class="text-left pt-3">Welcome to Infinity Health Hub, the premier online forum dedicated to providing
+                tailored support for neurodivergent women at every stage of life. With a focus on how neurodiversity and
+                life-stage interact in health considerations, Infinity Health Hub offers a safe and inclusive space
+                where members can connect, share experiences, and access targeted health support. From sexual and mental
+                health guidance in young adulthood to tailored reproductive health resources and holistic care guides
+                during pregnancy, postnatal periods, and menopause, Infinity Health Hub is committed to empowering
+                neurodivergent women to thrive across all life stages. Join our community and discover the support you
+                need to navigate your well-being effectively and authentically.</p>
 
         </div>
     </div>
@@ -21,8 +28,8 @@
             <div class="card">
                 {% if article.image %}
                 <a href="{% url 'article_detail' article.id %}">
-                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
-                    width="400">
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"
+                        width="400">
                 </a>
                 {% endif %}
                 <div class="card-body">
@@ -37,7 +44,8 @@
     <!-- Forum container code here -->
     {% else %}
     <div class="text-center">
-        <p class="pt-5">Please <a href="{% url 'account_signup' %}" class="link">sign up</a> or <a href="{% url 'account_login' %}" class="link">log in</a> to participate in forum discussions.</p>
+        <p class="pt-5">Please <a href="{% url 'account_signup' %}" class="link">sign up</a> or <a
+                href="{% url 'account_login' %}" class="link">log in</a> to participate in forum discussions.</p>
         <a href="{% url 'account_signup' %}" class="custom-btn btn">Join community</a>
 
     </div>
