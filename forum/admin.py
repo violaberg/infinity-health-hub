@@ -10,9 +10,11 @@ class ArticleAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content')
 
+
 class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'author', 'created_on', 'is_approved')
-    list_filter = ('is_approved', 'life_stage', 'neurodiversity')  # Add 'life_stage' and 'neurodiversity' to list_filter
+    # Add 'life_stage' and 'neurodiversity' to list_filter
+    list_filter = ('is_approved', 'life_stage', 'neurodiversity')
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content')
@@ -21,12 +23,16 @@ class PostAdmin(SummernoteModelAdmin):
         form = super().get_form(request, obj, **kwargs)
         if obj:
             form.base_fields['is_approved'].initial = True
-            form.base_fields['life_stage'].initial = obj.life_stage  # Pre-select 'life_stage' field
-            form.base_fields['neurodiversity'].initial = obj.neurodiversity  # Pre-select 'neurodiversity' field
+            # Pre-select 'life_stage' field
+            form.base_fields['life_stage'].initial = obj.life_stage
+            # Pre-select 'neurodiversity' field
+            form.base_fields['neurodiversity'].initial = obj.neurodiversity
         return form
+
 
 class ReplyAdmin(admin.ModelAdmin):
     list_display = ('author', 'body')
+
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Post, PostAdmin)

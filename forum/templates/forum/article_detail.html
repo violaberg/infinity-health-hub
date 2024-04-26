@@ -7,16 +7,17 @@
 <div class="container text-center mt-4">
   <h1 class="text-center">{{ article.title }}</h1>
   {% if article.image %}
-        <img class="img-fluid py-2" src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 400px; height: 400px;">
-    {% endif %}
-    <p>{{ article.content| safe }}</p>
+  <img class="img-fluid py-2" src="{{ article.image.url }}" alt="{{ article.title }}"
+    style="width: 400px; height: 400px;">
+  {% endif %}
+  <p>{{ article.content| safe }}</p>
 </div>
 <!-- DMcC 25/04 add home button -->
 <div class="text-center mb-2">
   <a href="{% url 'resources' %}" class="custom-btn btn">Home</a>
   {% if user.is_superuser %}
-    <a href="{% url 'update_article' article.id %}" class="custom-btn btn">Update Article</a>
-    <a href="{% url 'delete_article' article.id %}" class="btn-danger btn">Delete Article</a>
+  <a href="{% url 'update_article' article.id %}" class="custom-btn btn">Update Article</a>
+  <a href="{% url 'delete_article' article.id %}" class="btn-danger btn">Delete Article</a>
   {% endif %}
 </div>
 {% endblock %}
