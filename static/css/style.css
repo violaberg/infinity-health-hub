@@ -159,6 +159,15 @@ label {
     height: 200px;
 }
 
+/* About us page */
+.card-header {
+    background: var(--cream);
+}
+
+.card-body {
+    color: var(--gray);
+}
+
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;
