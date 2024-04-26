@@ -146,6 +146,10 @@ label {
     color: var(--darkgreen);
 }
 
+ul {
+    list-style-type: none;
+}
+
 /* Home page article cards */
 
 .article-img {
