@@ -15,41 +15,43 @@
     <a href="{% url 'create_post' %}" class="custom-btn btn btn-primary mb-3">Create Post</a>
 
     <form method="GET" action="{% url 'posts' %}" class="my-4">
-    <div class="row gx-3 align-items-center">
-        <div class="col-auto">
-            <label for="saved_posts" class="col-form-label">Filter by your Saved Posts:</label>
+        <div class="row gx-3 align-items-center">
+            <div class="col-auto">
+                <label for="saved_posts" class="col-form-label">Filter by your Saved Posts:</label>
+            </div>
+            <div class="col-auto">
+                <select name="saved_posts" id="saved_posts" class="form-select">
+                    <option value="">All</option>
+                    <option value="true" {% if saved_filter == 'true' %}selected{% endif %}>Saved</option>
+                    <option value="false" {% if saved_filter == 'false' %}selected{% endif %}>Not Saved</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-sm btn-primary">Apply Filter</button>
+            </div>
         </div>
-        <div class="col-auto">
-            <select name="saved_posts" id="saved_posts" class="form-select">
-                <option value="">All</option>
-                <option value="true" {% if saved_filter == 'true' %}selected{% endif %}>Saved</option>
-                <option value="false" {% if saved_filter == 'false' %}selected{% endif %}>Not Saved</option>
-            </select>
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-sm btn-primary">Apply Filter</button>
-        </div>
-    </div>
-</form>
+    </form>
 
     {% for post in posts %}
-    
-        <div class="card mb-2 post-card rounded shadow card-bg">
-            <div class="card-body pb-0">
-                <p><img class="navbar-image rounded-circle" src="{{ request.user.userprofile.profile_image.url }}"
-                        alt="Users avatar logo"> {{ request.user }} &#8226; {{ post.created_on }}</p>
-                <a href="{% url 'post_detail' post.id %}">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="p-0">{{ post.content|truncatechars:100|safe }}</p>
-                </a>      
-            </div>
-            <div class="d-flex justify-content-start align-items-center pb-2">
-               
+
+    <div class="card mb-2 post-card rounded shadow card-bg">
+        <div class="card-body pb-0">
+            <p><img class="navbar-image rounded-circle" src="{{ request.user.userprofile.profile_image.url }}"
+                    alt="Users avatar logo"> {{ request.user }} &#8226; {{ post.created_on }}</p>
+            <a href="{% url 'post_detail' post.id %}">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="p-0">{{ post.content|truncatechars:100|safe }}</p>
+            </a>
+        </div>
+        <div class="row pb-2">
+            <div class="col-md-8 pb-2">
                 <!-- Like Counter -->
                 <span class="text-muted pl-4"><i class="far fa-thumbs-up"></i> Likes: {{ post.likes.count }} </span>
 
                 <!-- reply Counter -->
                 <span class="text-muted pl-4"><i class="far fa-comment"></i> Replies: {{ post.replies.count }}</span>
+            </div>
+            <div class="col-md-4 ml-4 ml-md-auto">
                 {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary ml-auto mr-1 mb-1">Edit</a>
                 <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1 mr-4">Delete</a>
@@ -58,6 +60,8 @@
             </div>
 
         </div>
+
+    </div>
 
     {% empty %}
     <li>No posts found matching your life stage or neurodiversity</li>
