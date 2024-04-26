@@ -83,9 +83,8 @@
                                 <p class="my-0">Hi, {{ request.user }}!</p>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="custom-signup-nav-btn btn ml-3 py-1" href="{% url 'account_logout' %}">Logout</a>
                             </li>
-                            <li class="nav-link text-white">Logged in as {{ user }}</li>
                             {% else %}
                             <li class="nav-item pr-2 pb-1">
                                 <a class="custom-signup-nav-btn btn py-1" href="{% url 'account_signup' %}">Sign up</a>
@@ -128,13 +127,14 @@
         <footer class="footer text-center bg-white py-3">
             <p class="m-0">
                 <a href="{% url 'about' %}" class="link">FAQ |</a><a href="{% url 'contact' %}" class="link"> Contact Us
-                    |</a><a href="{% url 'resources' %}" class="link"> Resources</a>
+                    |</a><a href="{% url 'resources' %}" class="link"> Resources |</a>
+                    <a href="{% url 'posts' %}" class="link"> Forum</a>
             </p>
             <p class="m-0 text-center">Find us on social: <i class="icon fab fa-facebook-square ms-3"></i>
                 <i class="icon fa-brands fa-x-twitter"></i>
             </p>
             {% block copyright %}
-            <p class="m-0 text-center">&copy; <span class="team">Infinity Squad</span> 2024</p>
+            <p class="m-0 text-center">&copy; <span class="team">Infinity Squad</span> 2024 All Rights Reserved</p>
             {% endblock copyright %}
         </footer>
     </div>
