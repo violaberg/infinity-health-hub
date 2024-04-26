@@ -11,8 +11,9 @@
                 style="max-width: 100%; max-height: 200px;">
             {% endif %}
             <h3 class="fw-bold">{{ post.title }}</h3>
-            <p><img class="navbar-image rounded-circle" src="{{ request.user.userprofile.profile_image.url }}"
-                    alt="Users avatar logo"> {{ request.user }} &#8226; {{ post.created_on }}</p>
+            <p><img class="navbar-image rounded-circle card-post-bg"
+                    src="{{ request.user.userprofile.profile_image.url }}" alt="Users avatar logo"> {{ request.user }}
+                &#8226; {{ post.created_on }}</p>
             <div class="card mb-4 rounded card-post-bg">
                 <div class="card-body">
                     <p class="card-text">{{ post.content|safe }}</p>
@@ -60,8 +61,10 @@
                 </div>
             </div>
 
-            <a href="#" class="btn btn-primary" aria-label="edit post">Edit</a>
-            <a href="#" class="btn btn-danger" aria-label="delete post">Delete</a>
+            {% if user.is_authenticated and user == post.author %}
+            <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn-primary ml-auto mr-1 mb-1">Edit</a>
+            <a href="{% url 'delete_post' post.id %}" class="btn btn-sm btn-danger mb-1 mr-4">Delete</a>
+            {% endif %}
 
         </div>
     </div>
@@ -104,7 +107,7 @@
                     {% for rep in reply %}
                     <div class="replies{% if not reply_approved and rep.author == user %} faded{% elif not rep.is_approved %} d-none{% endif %}"
                         style="padding: 10px;">
-                    
+
                         <p class="font-weight-bold">
                             {{ rep.author }}
                             <span class="text-muted font-weight-normal">
