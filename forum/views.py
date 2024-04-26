@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Article, Post
+from profiles.models import LifeStage, NeuroDiversity
 from .forms import ReplyForm
 from .forms import PostForm, ArticleForm
 from django.utils.text import slugify
@@ -23,6 +24,7 @@ def post_list(request):
         neurodiversities = user_profile.neurodiversity.all()
         is_approved = user_profile.is_approved
         saved_posts = user.saved_posts.all()
+        alias = user_profile.alias
 
         if saved_filter == 'true':
             # Filter posts to show only saved posts
@@ -49,7 +51,8 @@ def post_list(request):
         context = {
             'posts': posts,
             'is_approved': is_approved,
-            'saved_posts': saved_posts
+            'saved_posts': saved_posts,
+            'alias': alias
         }
 
         return render(request, 'forum/post_list.html', context)
@@ -203,7 +206,24 @@ def save_post(request, post_id):
 
 def article_list(request):
     articles = Article.objects.filter(is_approved=True)
-    return render(request, 'forum/article_list.html', {'articles': articles})
+    life_stages = LifeStage.objects.all()
+    neurodiversities = NeuroDiversity.objects.all()
+
+    life_stage_id = request.GET.get('life_stage')
+    if life_stage_id:
+        articles = articles.filter(life_stage__id=life_stage_id)
+
+    neurodiversity_id = request.GET.get('neurodiversity')
+    if neurodiversity_id:
+        articles = articles.filter(neurodiversity__id=neurodiversity_id)
+
+    context = {
+        'articles': articles,
+        'life_stages': life_stages,
+        'neurodiversities': neurodiversities,
+    }
+
+    return render(request, 'forum/article_list.html', context)
 
 
 def article_detail(request, article_id):
