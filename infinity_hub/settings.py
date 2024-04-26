@@ -35,6 +35,8 @@ DEBUG = True
 # DMcC 25/04/24 Message storage in session
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+X_FRAME_OPTIONS = 'ALLOW-FROM https://amiresponsive.co.uk/ https://responsivedesignchecker.com/ https://techsini.com/multi-mockup/'
+
 ALLOWED_HOSTS = ['infinity-hub-15161149b9fb.herokuapp.com',
                  '8000-vasileios20-infinityhub-tnlazceugrf.ws-eu110.gitpod.io',
                  '8000-vasileios20-infinityhub-n7uovthffb0.ws-eu110.gitpod.io',
