@@ -83,9 +83,8 @@
                                 <p class="my-0">Hi, {{ request.user }}!</p>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="custom-signup-nav-btn btn ml-3 py-1" href="{% url 'account_logout' %}">Logout</a>
                             </li>
-                            <li class="nav-link text-white">Logged in as {{ user }}</li>
                             {% else %}
                             <li class="nav-item pr-2 pb-1">
                                 <a class="custom-signup-nav-btn btn py-1" href="{% url 'account_signup' %}">Sign up</a>

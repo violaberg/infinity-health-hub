@@ -72,6 +72,10 @@ nav a.active {
     font-weight: 500;
 }
 
+a {
+    color: var(--darkgreen);
+}
+
 .link:hover, .icon:hover {
     color: var(--gray);
 }
@@ -79,10 +83,6 @@ nav a.active {
 .custom-border {
     border-color: var(--gray);
     border-width: 3px;
-}
-
-.form-bg {
-    background-color: white;
 }
 
 label {
@@ -142,15 +142,6 @@ label {
     color: var(--pink);
 }
 
-@media (min-width: 992px) {
-    .navbar {
-        top: 0;
-    }
-    .logo {
-        width: 15%;
-    }
-}
-
 /* Home page article cards */
 
 .article-img {
@@ -166,6 +157,10 @@ label {
 
 .card-body {
     color: var(--gray);
+}
+
+.faq-p {
+    font-style: italic;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -203,3 +198,11 @@ label {
     color: rgb(172, 175, 175);
 }
 
+@media (min-width: 992px) {
+    .navbar {
+        top: 0;
+    }
+    .logo {
+        width: 15%;
+    }
+}
