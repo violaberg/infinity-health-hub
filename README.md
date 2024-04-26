@@ -1,7 +1,7 @@
 # Infinity Hub 
 Developer:  **Team Infinity**, Apr 2024
 
-![Site image](./django_financial_planner/docs/readme_images/val-responsive.png?raw=true "Site image (responsive view)")
+![Site image](./docs/readme_images/homepage.png?raw=true "Site image (responsive view)")
 
 
 # Table of Contents:
