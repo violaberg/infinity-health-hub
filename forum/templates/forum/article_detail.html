@@ -13,11 +13,11 @@
   <p>{{ article.content| safe }}</p>
 </div>
 <!-- DMcC 25/04 add home button -->
-<div class="text-center mb-2">
-  <a href="{% url 'resources' %}" class="custom-btn btn">Home</a>
+<div class="text-center mb-3">
   {% if user.is_superuser %}
   <a href="{% url 'update_article' article.id %}" class="custom-btn btn">Update Article</a>
   <a href="{% url 'delete_article' article.id %}" class="btn-danger btn">Delete Article</a>
   {% endif %}
 </div>
+<div class="text-center"><a href="{% url 'resources' %}" class="custom-btn btn mb-4">Home</a></div>
 {% endblock %}

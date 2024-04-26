@@ -10,12 +10,12 @@
         </div>
         {% if user.is_superuser %}
         <div class="col-12 text-center mb-2">
-            <a href="{% url 'create_article' %}" class="btn btn-primary">Create Article</a>
+            <a href="{% url 'create_article' %}" class="custom-btn btn rounded">Create Article</a>
         </div>
         {% endif %}
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-12">
                     <form method="GET" action="{% url 'articles' %}" class="mb-4">
                         <div class="form-row">
                             <div class="col-md-6">
@@ -35,9 +35,9 @@
                                     <option value="{{ neurodiversity.id }}">{{ neurodiversity.neurodiversity }}</option>
                                     {% endfor %}
                                 </select>
+                                <button type="submit" class="btn btn-danger float-right mt-3">Apply Filter</button>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Apply Filter</button>
                     </form>
                 </div>
             </div>
@@ -45,7 +45,7 @@
         {% if articles %}
         {% for article in articles %}
         <div class="col-md-4 mb-4 rounded">
-            <div class="card mb-4 shadow-sm h-100 rounded">
+            <div class="card mb-4 shadow h-100 rounded">
                 {% if article.image %}
                 <a href="{% url 'article_detail' article.id %}">
                     <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid offset-auto rounded"

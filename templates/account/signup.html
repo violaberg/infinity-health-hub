@@ -19,7 +19,7 @@
       <div class="row mt-1">
         <div class="form-bg custom-border col-md-6 m-auto border rounded p-3">
 
-          <form class="signup text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <form class="signup text-center border shadow p-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form.non_field_errors | safe }}
             <input type="hidden" name="remember" value="true">
