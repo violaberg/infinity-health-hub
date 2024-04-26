@@ -32,19 +32,15 @@
 
 <body>
     <div class="wrapper">
-        <header class="container-fluid bg-white">
-            <div id="topnav" class="row pt-lg-4 d-lg-flex">
-                <div class="col-lg-6 my-auto py-1 py-lg-0 text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <img class="logo d-inline" src="{% static 'images/logo1.png' %}"
-                            alt="Rainbow color infinity symbol">
-                        <h2 class="logo-text d-inline my-0">Infinity Health Hub</h2>
+        <header class="mt-5 pt-4">
+            <nav class="navbar navbar-expand-lg navbar-light mt-5 pb-0 mb-0  bg-white ">
+                <div class="container-fluid mb-0 pb-0">
+                    <a class="navbar-brand d-flex" href="{% url 'home' %}"><span class="brand">
+                            <img class="" src="{% static 'images/logo1.png' %}" alt="Rainbow color infinity symbol"
+                                height="40">
+                            <p class="h4">Infinity Health Hub</p>
                     </a>
-                </div>
-            </div>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><span class="brand"></a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -73,19 +69,17 @@
                                     Us</a>
                             </li>
                             {% if user.is_authenticated %}
-                            <li class="nav-link p-0">
+                            <li class="nav-link p-lg-0 pl-4 pb-2">
 
                                 <!-- display profile image -->
                                 <img class="navbar-image rounded-circle"
                                     src="{{ request.user.userprofile.profile_image.url }}" alt="Users avatar logo">
+                                Hi, {{ request.user }}!
                             </li>
                             <li class="nav-item">
-                                <p class="my-0">Hi, {{ request.user }}!</p>
+                                <a class="custom-signup-nav-btn btn ml-3 py-1"
+                                    href="{% url 'account_logout' %}">Logout</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                            </li>
-                            <li class="nav-link text-white">Logged in as {{ user }}</li>
                             {% else %}
                             <li class="nav-item pr-2 pb-1">
                                 <a class="custom-signup-nav-btn btn py-1" href="{% url 'account_signup' %}">Sign up</a>
@@ -102,17 +96,17 @@
         {% if messages %}
         <div class="message-container">
             {% for message in messages %}
-                {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast-error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast-warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast-success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast-info.html' %}
-                {% endif %}
-            {% endwith %}        
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast-error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast-warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast-success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast-info.html' %}
+            {% endif %}
+            {% endwith %}
             {% endfor %}
         </div> <!-- end div message-container-->
         {% endif %}
@@ -128,13 +122,14 @@
         <footer class="footer text-center bg-white py-3">
             <p class="m-0">
                 <a href="{% url 'about' %}" class="link">FAQ |</a><a href="{% url 'contact' %}" class="link"> Contact Us
-                    |</a><a href="{% url 'resources' %}" class="link"> Resources</a>
+                    |</a><a href="{% url 'resources' %}" class="link"> Resources |</a>
+                <a href="{% url 'posts' %}" class="link"> Forum</a>
             </p>
             <p class="m-0 text-center">Find us on social: <i class="icon fab fa-facebook-square ms-3"></i>
                 <i class="icon fa-brands fa-x-twitter"></i>
             </p>
             {% block copyright %}
-            <p class="m-0 text-center">&copy; <span class="team">Infinity Squad</span> 2024</p>
+            <p class="m-0 text-center">&copy; <span class="team">Infinity Squad</span> 2024 All Rights Reserved</p>
             {% endblock copyright %}
         </footer>
     </div>
@@ -166,24 +161,24 @@
     </script>
 
     <script>
-    $(document).ready(function() {
-        $('.toast').toast('show');
-    
-    setTimeout(function() {
-        toast.hide();
-    }, 2000);
-    });
+        $(document).ready(function () {
+            $('.toast').toast('show');
+
+            setTimeout(function () {
+                toast.hide();
+            }, 2000);
+        });
     </script>
-    
+
     <script>
-    $(document).ready(function () {
-        $("#scroll-top-btn").on('click', function () {
-        $(function () {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
-  });
-    });
+        $(document).ready(function () {
+            $("#scroll-top-btn").on('click', function () {
+                $(function () {
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                });
+            });
+        });
     </script>
 
 
