@@ -37,7 +37,7 @@
     <div class="card mb-2 post-card rounded shadow card-bg">
         <div class="card-body pb-0">
             <p><img class="navbar-image rounded-circle" src="{{ request.user.userprofile.profile_image.url }}"
-                    alt="Users avatar logo"> {{ request.user }} &#8226; {{ post.created_on }}</p>
+                    alt="Users avatar logo"> {{ alias }} &#8226; {{ post.created_on }}</p>
             <a href="{% url 'post_detail' post.id %}">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <p class="p-0">{{ post.content|truncatechars:100|safe }}</p>

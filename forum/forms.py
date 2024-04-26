@@ -21,6 +21,5 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ['title', 'content', 'image']
         widgets = {
-            'title': SummernoteWidget(),
             'content': SummernoteWidget(),
         }
