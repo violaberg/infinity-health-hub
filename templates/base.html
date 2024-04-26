@@ -122,6 +122,9 @@
 
             {% endblock %}
         </div>
+        <!-- Scroll to top button -->
+        <div id="scroll-top-btn"><i class="fa-solid fa-circle-chevron-up"></i></div>
+
         <footer class="footer text-center bg-white py-3">
             <p class="m-0">
                 <a href="{% url 'about' %}" class="link">FAQ |</a><a href="{% url 'contact' %}" class="link"> Contact Us
@@ -163,13 +166,24 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            var toastList = toastElList.map(function (toastEl) {
-                return new bootstrap.Toast(toastEl)
-            })
-            toastList.forEach(toast => toast.show());
-        });
+    $(document).ready(function() {
+        $('.toast').toast('show');
+    
+    setTimeout(function() {
+        toast.hide();
+    }, 2000);
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function () {
+        $("#scroll-top-btn").on('click', function () {
+        $(function () {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+  });
+    });
     </script>
 
 

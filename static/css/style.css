@@ -203,3 +203,36 @@ label {
     color: rgb(172, 175, 175);
 }
 
+/* Scroll to top button */
+#scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 0.8rem;
+    z-index: 100;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    color: #4b4949;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /*transition: background 0.5s ease-in-out; */
+}
+
+#scroll-top-btn i {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+#scroll-top-btn i:hover {
+    opacity: 0.6;
+}
+
+#scroll-top-btn:focus {
+    opacity: 0.8;
+}
+
+#scroll-top-btn:active {
+    opacity: 0.9;
+}
