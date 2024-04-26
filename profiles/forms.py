@@ -12,3 +12,5 @@ class UserProfileForm(forms.ModelForm):
         self.fields['alias'].required = True
         self.fields['IFAB'].label = "Assigned Female at Birth"
         self.fields['neurodiversity'].label = "Neurodivergence"
+        self.fields['lifestage'].label = "Life Stage"
+        

@@ -96,6 +96,8 @@ def post_detail(request, post_id):
     reply = post.replies.filter(approved=True).order_by('created_on')
     liked = False
     saved = False
+    user_profile = request.user.userprofile
+    alias = user_profile.alias
 
     if request.user.is_authenticated and post.likes.filter(id=request.user.id).exists():
         liked = True
@@ -127,7 +129,8 @@ def post_detail(request, post_id):
         'replied': request.method == 'POST',
         'liked': liked,
         'saved': saved,
-        'post_id': post_id
+        'post_id': post_id,
+        'alias': alias
     }
     return render(request, 'forum/post_detail.html', context)
 
