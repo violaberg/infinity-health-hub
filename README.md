@@ -15,10 +15,6 @@ Developer:  **Team Infinity**, Apr 2024
     2. [UX Design - Scope - Data](#ux-design-scope-data)
     3. [UX Design - Scope - Viewing Device](#ux-design-scope-viewing-device)
 4. [User goals/ user stories: ](#user-goals-user-stories)
-    1. [Site Owner Goals](#site-owner-goals)
-    2. [First-time User Goals](#first-time-user-goals)
-    3. [Returning User Goals](#returning-user-goals)
-    4. [Other stakeholder Goals](#other-stakeholder-goals)
 5. [Further UX Design: ](#ux-design-decisions)
     1. [Skeleton - Wireframes; ](#wireframes)
     2. [Surface - Fonts; ](#fonts-chosen)
@@ -27,16 +23,8 @@ Developer:  **Team Infinity**, Apr 2024
 6. [Agile Methology: ](#agile)
     1. [Project setup](#project)
     2. [Designing an Issue Template](#issue-template)
-    3. [Creating project issues](#project-issues)
-    4. [EPICs ](#epics)
-    5. [MoSCoW Prioritisation;](#moscow-prioritisation)
-    6. [Level of Effort estimation - Story Points](#story-points)
-    7. [Project Milestones](#milestones)
-    8. [Project Sprints](#sprints-and-iterations)
-    9. [Issue Lifecycle](#issue-lifecycle)
-    10. [Project tabular view](#tabular-projects-view)
-    11. [Kanban board](#kanban-board)
-    12. [Observations and learnings](#agile-observations-and-learnings)    
+    3. [Kanban board](#kanban-board)
+    4. [Observations and learnings](#agile-observations-and-learnings)    
 7. [Features](#features)
     1. [Included](#features-in-scope)
     2. [Future Development](#features-left-to-implement)
@@ -82,19 +70,12 @@ https://infinity-hub-15161149b9fb.herokuapp.com/
 
 ## Problem Statement
 ----------------
-It is increasingly recognised that many more neurodivergent women exist than has previously been recognised or acknowledged by the medical and social professions.  This means there are a significant number of women living without a diagnosis, who carry the significant cognitive burden of 'masking'.  Masking refers to concealing aspects of ourselves, in order to be accepted and granted the same priviledges as neurotypical persons.
+**The problem we aim to solve**:
+Neurodivergent women require specialised support due to the distinct challenges they face compared to neurotypical women. Their unique cognitive and sensory experiences impact various aspects of life, including social interactions, self-expression, and healthcare access. Addressing these differences is crucial in fostering inclusive health systems that empower neurodivergent women to navigate their well-being effectively and authentically.
 
-Females Hormones fluctuate at certain lifestages, which means:
-* Teenage girls with neurodiversity are much more likely to engage in risky behaviour
-* Postpartum females are more likely to suffer from Post-Natal depression 
-* Perimenopausal women (remember this can go on for up to 10 years)  in their late 40's/ early 50's, who have masked their way through their career, are more likely to burn out and exit formal employment at thhis point.
-
-While resources and sites do exist, these tend to quite 'crowded' with difficult-to-filter information, or focus on one particular type of neurodivergence (in practice, women will often be dealing with more than one).
-
-Few of the existing resources allow females to tailor the information seen based on their life-stage.  Life-stage: young adult/ pregnant/ postpartum/ perimenopausal - affects hormone levels and certain additional stressors are predictable by female life-stages.
-
-For people who expend considerable effort on 'masking', the process of unmasking, or being open about individual struggles, can be very uncomfortable without the assurance of a safe and supportive environment.  From the chat groups surveyed, it was not clear that they were able to provide this environment.
-
+**The concept we’ve put together:**
+Supporting neurodivergent women at every stage is vital. Tailored support in young adulthood aids academic and career success. Accessible reproductive health services during attempts to conceive inform family planning. Personalised care during pregnancy and postnatal periods addresses sensory sensitivities and mental health. In menopause, managing hormonal changes alongside existing traits ensures holistic well-being. Meeting these needs fosters inclusive environments where neurodivergent women can thrive across their lives.
+By creating a forum that takes neurodiversity, health and life stage into account, the most effective and targeted health support can be provided to all neurodivergent women.
 
 ## Project Goals
 ----------------
@@ -125,23 +106,45 @@ The target audience is females, who are aged 16+, and are living with one or mor
 ## UX Design Scope
 ----------------
 
-
 ## User Goals/ User Stories
 ----------------
-Written in the format 'As a **role** I want to **action** to achieve **desired outcome**    
-### Site owner/moderator Goals
-* SO_01 As site owner I want to provide a platform where users can directly access useful resources
 
-### First-time User Goals
-* FTU_01 As a first-time user I want to
+| ID |  **As** | **I want to** | **to achieve** |
+| -- |  -- | -- | -- |
+| US_01  | site user | quickly understand the site purpose | decide whether to spend time exploring and discovering the site |
+| US_02  | site user | easily navigate the site | don't become frustrated and leave |
+| US_03  | site user | navigate the site without mandatory login| I can discover site features before deciding whether to commit to using site| 
+| US_04  | site user | access resources that are tailored to my lifestage and neurodivergence | avoid information overwhelm| 
+| US_05  | site user | set my user profile with my specific lifestage and divergence| receive targeted information by default and avoid overwhelm  | 
+| US_06  | site user | decide WHEN and HOW I wish to unmask/reveal my neurodivergence   |  feel safe in sharing/ unmasking at a pace that suits me| 
+| US_07  | site user | access a discussion form specific to my lifestage/ neurodivergence | access real-life experiences of people similar to me |
+| US_08  | site user | Create a post in a discussion group and retain right to update/ delete post| safely ask questions of peers | 
+| US_09  | site user | Add replies to someone elses post | provide helpful information to my peers | 
+| US_10  | site user | identify my favourite articles | quickly access them again later | 
 
-### Returning User Goals
-* RU_01 As a returning user I want to 
+| -- | --| --| --|
+| SO_01 | site owner | provide a safe, well-moderated space | to support neurodivergent females through challenging stages of life|
+| SO_02 | site owner | moderate/approve posts and replies | to retain the site as a safe space for all users |
+| SO_03 | site owner | moderate user profile changes  | preserve the privacy of posts to users who share a neurodivergence/lifestage (avoid snoopers) |
+| SO_04 | site owner | create and approve articles  | provide authoritative, useful & helpful information to users |
+
 
 ## UX Design Decisions
 ----------------
 
 ### Wireframes
+<details><summary>Landing Page</summary>
+<img src="./docs/readme_images/wf1-landing-pg.png">
+</details>
+
+
+<details><summary>Product detail</summary>
+<img src="./docs/readme_images/wf3-product-detail.png">
+</details>
+
+<details><summary>Create a basket</summary>
+<img src="./docs/readme_images/wf4-basket.png">
+</details>
 
 ### Fonts Chosen
 
@@ -156,12 +159,50 @@ An Agile approach was followed in plannning and executing this project
 
 ## Features 
 Implemented features are   
+**F01  Lifestage and Neurodiversity personalisation**
+Each user can nominate their The content displayed on the site is personalised to the users 
+
+<details><summary>Landing Page</summary>
+<img src="./docs/readme_images/res_loggedin_filtered.png.png">
+</details>
+
+**F02 Moderated Broadcast Resources - Articles**
+Articles are created by the site admin and made available to the users via the Resources page.  
+Guest users can see the full range of articles, they can also filter by lifestage and neruodivergence to target their reading.
+
+**F03 Private, Moderated peer-to-peer discussions**
+Discussion Forum  - posts are created and tagged with specific lifestage(s) and neurodivergences.
+These posts are then only visible to users who **match** these lifestage and neurodivergences.
+This ensures a level of privacy when reading posts - this allows users to explore sensitive topics with a stakeholder peer group.
+
+Other users have the ability to create replies against the post thread.
+
+Both posts and replies are moderated and will not display until the moderator has approved the entry.
+
+**F04 Progressive Reveal**
+As a user who either may not have a formal diagnosis, or who wishes for a level of annonymity when using the site, I can:
+* create an 'alias' under which will display (instead of my username) for any posts or comments I create.  This helps as users will often choose their email address as username when signing up to a portal, and this will be overriden by the user's chosen alias.
+* create an avatar against my user profile - my initial profile image displays as a generic image, I can choose a representative image - e.g. a cartoon superhero.  As I become more comfortable with the site and its safey, I can decide if I wish to change this to a picture of the 'real me'.
+
+**F06 About Us - Site Mission Statement**
+
+
+**F07 About Us - Team Profile**
+
+
+**F08 About Us - FAQ**
+
+**F05 Save articles**
+The user has the ability to set a resource as 'saved', to mark articles of interest** so that they create a reading list to conveniently retrieve interesting articles without needing to find again from the main resources page.
+
 
 ### Features in Scope 
 
 ### Features Left to Implement
 
-## Technologies
+**Access to Follow-on Services**
+As a future feature it would make sense for InspireHub to provide access to follow-on resources, being counselling, advocacy bodies and other agencies who could provide 1:1 services.
+
 
 ### Langugages
 - HTML 
@@ -177,7 +218,7 @@ Implemented features are
 * Gitpod:  used for editing and for tracking code commits back to Github
 
 ### Python Libraries
-The following additional python libraries were used:
+A number of additional python libraries were used, the key amongst these being Summernote, which allows for sophisticated article content creation.
 
 
 ### Third-Party Libraries
