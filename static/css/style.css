@@ -52,15 +52,15 @@ body {
 }
 
 .navbar-image {
-    display: inline-block;
-    max-width: 40px;
-    max-height: 40px;
     border-radius: 50%;
+    display: inline-block;
+    max-height: 40px;
+    max-width: 40px;
 }
 
 nav a.active {
-    font-weight: bold;
     color: rgb(21, 21, 22);
+    font-weight: bold;
   }
 
 .footer {
@@ -153,9 +153,9 @@ ul {
 /* Home page article cards */
 
 .article-img {
+    height: auto;
     object-fit: cover;
     width: 100%;
-    height: auto;
 }
 
 /* About us page */
@@ -174,8 +174,8 @@ ul {
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;
-    top: 72px;
     right: 15px;
+    top: 72px;
     z-index: 99999999999;
 }
 .custom-toast {
@@ -208,17 +208,17 @@ ul {
 
 /* Scroll to top button */
 #scroll-top-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 0.8rem;
-    z-index: 100;
-    cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
     background: transparent;
-    color: #4b4949;
     border-radius: 50%;
+    bottom: 2rem;
+    color: #4b4949;
+    cursor: pointer;
+    height: 1.5rem;
+    position: fixed;
+    right: 0.8rem;
     text-align: center;
+    z-index: 100;
+    width: 1.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /*transition: background 0.5s ease-in-out; */
 }
