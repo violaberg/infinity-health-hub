@@ -1,7 +1,7 @@
 # Infinity Hub 
 Developer:  **Team Infinity**, Apr 2024
 
-![Site image](./docs/readme_images/homepage.png?raw=true "Site image (responsive view)")
+![Site image](./docs/readme_images/home-hub.png)
 
 
 # Table of Contents:
@@ -56,7 +56,7 @@ The site is built, with the help of Bootstrap 5, to be fully responsive so it ca
 </details>
 
 ### Live webpage link
-https://infinity-hub-15161149b9fb.herokuapp.com/
+https://infinity-health-hub-399deb558281.herokuapp.com/
 
 ## Problem Statement
 ----------------
