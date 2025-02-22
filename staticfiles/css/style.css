@@ -1,0 +1,241 @@
+:root {
+    --pink: #ffe4d1;
+    --yellow: #feeeba;
+    --green: #dbead5;
+    --cream: #f4f5e0;
+    --gray: #404040;
+    --darkgreen: #033500;
+    --darkpink: #eeada0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+h1, h3, h5, .team {
+    color: var(--darkgreen);
+}
+
+h2, p {
+    color: var(--gray);
+}
+
+body {
+    background: var(--green);
+    background: linear-gradient(360deg, rgba(219,234,213,1) 0%, rgba(244,245,224,1) 50%, rgba(255,228,209,1) 100%) fixed;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--darkgreen);
+    padding: 0 1.5rem;
+}
+
+.navbar {
+    top: -5rem;
+}
+
+.logo {
+    font-size: 20px;
+    position: relative;
+    top: -0.3em;
+    width: 25%;
+}
+
+.logo-text {
+    color: var(--gray);
+}
+
+.navbar-image {
+    border-radius: 50%;
+    display: inline-block;
+    max-height: 40px;
+    max-width: 40px;
+}
+
+nav a.active {
+    color: rgb(21, 21, 22);
+    font-weight: bold;
+  }
+
+.footer {
+    color: var(--gray);
+}
+
+.link, .icon {
+    color: var(--darkgreen);
+    font-weight: 500;
+}
+
+a {
+    color: var(--darkgreen);
+}
+
+.link:hover, .icon:hover {
+    color: var(--gray);
+}
+
+.custom-border {
+    border-color: var(--gray);
+    border-width: 3px;
+}
+
+label {
+    color: var(--gray);
+}
+
+/* Buttons */
+.custom-btn {
+    background: var(--darkgreen);
+    border-color: var(--darkgreen);
+    color: var(--cream);
+}
+
+.custom-btn:hover {
+    background: var(--pink);
+    border-color: var(--darkgreen);
+    color: var(--darkgreen);
+}
+
+.custom-nav-btn {
+    background: var(--green);
+    border-color: var(--darkgreen);
+}
+
+.custom-nav-btn:hover {
+    background: var(--pink);
+    border-color: var(--darkpink);
+}
+
+.custom-signup-nav-btn {
+    background: var(--pink);
+    border-color: var(--darkpink);
+}
+
+.custom-signup-nav-btn:hover {
+    background: var(--green);
+    border-color: var(--darkgreen);
+}
+
+.custom-secondary-btn {
+    border-color: var(--darkpink);
+    color: var(--darkgreen);
+}
+
+.custom-secondary-btn:hover,
+.comment-btn:hover {
+    background: var(--darkgreen);
+    border-color: var(--darkgreen);
+    color: var(--pink);
+}
+
+.comment-btn {
+    background-color: white;
+}
+
+.favorite-btn:hover {
+    color: var(--pink);
+}
+
+.fa-circle-chevron-up {
+    color: var(--darkgreen);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Home page article cards */
+
+.article-img {
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* About us page */
+.card-header {
+    background: var(--cream);
+}
+
+.card-body {
+    color: var(--gray);
+}
+
+.faq-p {
+    font-style: italic;
+}
+
+/* ------------------------------- bootstrap toasts */
+.message-container {
+    position: fixed;
+    right: 15px;
+    top: 72px;
+    z-index: 99999999999;
+}
+.custom-toast {
+    overflow: visible;
+}
+.toast-capper {
+    height: 2px;
+}
+
+/* Remove list*/
+.post-card a:hover {
+    text-decoration: none;
+}
+
+.card-bg {
+    background-color: rgba(255,228,209, 0.2);
+}
+
+.card-bg {
+    background-color: rgba(244,245,224, 0.2);
+}
+
+.card-post-bg {
+    background-color: rgba(244,245,224, 0.8);
+}
+
+.faded {
+    color: rgb(172, 175, 175);
+}
+
+/* Scroll to top button */
+#scroll-top-btn {
+    background: transparent;
+    border-radius: 50%;
+    bottom: 2rem;
+    color: #4b4949;
+    cursor: pointer;
+    height: 1.5rem;
+    position: fixed;
+    right: 0.8rem;
+    text-align: center;
+    z-index: 100;
+    width: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /*transition: background 0.5s ease-in-out; */
+}
+
+#scroll-top-btn i {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+#scroll-top-btn i:hover {
+    opacity: 0.6;
+}
+
+#scroll-top-btn:focus {
+    opacity: 0.8;
+}
+
+#scroll-top-btn:active {
+    opacity: 0.9;
+}

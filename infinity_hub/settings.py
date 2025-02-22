@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from urllib.parse import urlparse
 import dj_database_url
 
 if os.path.isfile("env.py"):
@@ -37,26 +38,10 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 X_FRAME_OPTIONS = 'ALLOW-FROM https://amiresponsive.co.uk/ https://responsivedesignchecker.com/ https://techsini.com/multi-mockup/'
 
-ALLOWED_HOSTS = ['infinity-hub-15161149b9fb.herokuapp.com',
-                 '8000-vasileios20-infinityhub-tnlazceugrf.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-n7uovthffb0.ws-eu110.gitpod.io',
-                 'https://8000-vasileios20-infinityhub-tnlazceugrf.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-qu8k940y57n.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-n1cualn8mni.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-qyq3ge7a31m.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-4htg50os38c.ws-eu110.gitpod.io',
-                 '8000-vasileios20-infinityhub-xk4h0mfxmiw.ws-eu110.gitpod.io',
-                 'localhost', '8000-vasileios20-infinityhub-8ln40mftbwt.ws-eu110.gitpod.io', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com',
+                 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = [
-    ('https://8000-vasileios20-infinityhub-tnlazceugrf.'
-     + 'ws-eu110.gitpod.io'),
-    'https://8000-vasileios20-infinityhub-n7uovthffb0.ws-eu110.gitpod.io',
-    'https://8000-vasileios20-infinityhub-n1cualn8mni.ws-eu110.gitpod.io',
-    'https://8000-vasileios20-infinityhub-qyq3ge7a31m.ws-eu110.gitpod.io',
-    'https://8000-vasileios20-infinityhub-4htg50os38c.ws-eu110.gitpod.io',
-    'https://8000-vasileios20-infinityhub-xk4h0mfxmiw.ws-eu110.gitpod.io',
-]
+CSRF_TRUSTED_ORIGINS = ['https://.herokuapp.com', 'http://127.0.0.1', 'http://localhost']
 
 
 # Application definition
@@ -103,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'infinity_hub.urls'
@@ -132,16 +118,18 @@ WSGI_APPLICATION = 'infinity_hub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if "DEV" in os.environ:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
+tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
     }
-else:
-    DATABASES = {"default": dj_database_url.parse(
-        os.environ.get("DATABASE_URL"))}
+}
 
 
 # Password validation
